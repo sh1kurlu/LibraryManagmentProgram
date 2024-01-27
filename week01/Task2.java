@@ -10,5 +10,7 @@ public class Task2 {
         System.out.println(sum);
 
         scanner.close();
+
+        
 }
 }
