@@ -3,7 +3,7 @@ package week01;
 
 
 // This Main class named as "main"
-public class main {
+public class Task1 {
     public static void main(String[] args) {
         /*
         Main method:
