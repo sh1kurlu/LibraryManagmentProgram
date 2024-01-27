@@ -9,18 +9,17 @@ public class Task3 {
         // If we scan 'int' then we type 'nextInt'
         long b = scanner.nextLong();
         // If we scan 'long' then we type 'nextLong'
-        double c = scanner.nextDouble();
-        // If we scan 'double' then we type 'nextDouble'
+        float c = scanner.nextFloat();
+        // If we scan 'float' then we type 'nextFloat'
         
-        double sum = a + b + c;
+        float sum = a + b + c;
         /*  
         
          If we get to choose the most suitable data type
          for the sum of various data types, we would pick the one that can 
          accommodate the widest range of possible values
 
-         In this case the best option here the largest which is 'double'
-
+         In this case the best option here the largest which is: Float
         */
         
 
