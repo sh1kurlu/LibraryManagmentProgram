@@ -18,6 +18,26 @@ public class Task5 {
 
         System.out.println("Binary Format: " + Integer.toBinaryString(num));
         
+        
+        //Float value 
+        float num1 = scan.nextFloat();
+
+            
+        // Print out the same value in different formats (decimal floating-point, scientific notation and general floating-point)
+        System.out.println("Float Value: " + num1);
+ 
+        System.out.println("Decimal Floating-Point Format: " + String.format("%.2f", num1));
+
+        System.out.println("Scientific Notation: " + String.format("%.2e", num1));
+        
+        System.out.println("General Floating-Point Format: " + String.format("%.2g", num1));
+        
+
+
+
+
+
+        scan.close();
 
 
     }
