@@ -20,7 +20,7 @@ public class Task1 {
         System.out.println("Dear" + args[0] +", nice to meet with you");
         
         // Used to print a message introducing the program's user using second command line argument
-        System.out.println("My name is" + args[0]);
+        System.out.println("My name is" + args[1]);
 
 
 
