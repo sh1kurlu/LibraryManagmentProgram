@@ -17,10 +17,10 @@ public class Task1 {
         */
         
         //Used to print a welcome message using the first command line argument
-        System.out.println("Dear" + args[0] +", nice to meet with you");
+        System.out.println("Dear " + args[0] + " , nice to meet with you");
         
         // Used to print a message introducing the program's user using second command line argument
-        System.out.println("My name is" + args[1]);
+        System.out.println("My name is " + args[1]);
 
 
 
