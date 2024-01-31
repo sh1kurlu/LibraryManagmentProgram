@@ -30,6 +30,7 @@ public class MonthInfo {
             case 12: System.out.println("December: 31 days");
             break;
 
+            default: System.out.println("There is no such month");
         
         }
 
