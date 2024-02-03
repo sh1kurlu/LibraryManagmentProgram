@@ -14,11 +14,12 @@ public class Primes{
             }
             
         }
+      
 
-        if(count == 0){
+        if(count == 0 && n!=1){
             System.out.println("Its a prime");
         }
-        else{
+        else if (count > 0 || n == 1){
             System.out.println("Its not a prime!");
         }
 
