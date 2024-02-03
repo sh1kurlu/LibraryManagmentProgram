@@ -21,6 +21,8 @@ public class Primes{
         else{
             System.out.println("Its not a prime!");
         }
+
+        s.close();
         
     }
 

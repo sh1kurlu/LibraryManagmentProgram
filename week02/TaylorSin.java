@@ -21,6 +21,7 @@ public class TaylorSin {
             System.out.println("sin("+ x +") with " + i + "nd term: " + taylorApproximation);
 
         }
+        
     }
 
      static double calculateSin(double x, int n) {
@@ -41,5 +42,8 @@ public class TaylorSin {
         } else {
             return n * factorial(n - 1);
         }
+
+        
     }
+    
 }
