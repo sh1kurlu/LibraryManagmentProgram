@@ -14,6 +14,6 @@ public class Harmonic {
 
         System.out.println(result);
 
-        
+        s.close();
     }
 }

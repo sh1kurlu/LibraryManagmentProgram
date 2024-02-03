@@ -14,6 +14,8 @@ public class Time {
         // Calculate and print remaining minutes by '%' to 60 in order to convert from minutes to seconds.
         System.out.println("Seconds: " + (second%60));
 
+        s.close();
+
 
     }
 }

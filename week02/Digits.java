@@ -27,6 +27,8 @@ public class Digits {
         System.out.println("Sum: " + sum);
         System.out.println("Product: " + product);
         System.out.printf("Average: %.1f", (average));
+
+        s.close();
     }
 
 }

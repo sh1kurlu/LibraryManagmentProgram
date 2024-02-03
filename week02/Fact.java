@@ -23,6 +23,8 @@ public class Fact {
         System.out.println("Negative number error!");
 
        }
+
+       s.close();
   
     
 
