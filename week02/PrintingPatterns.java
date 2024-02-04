@@ -1,42 +1,28 @@
 package week02;
-import java.util.*;
+import java.util.Scanner;
 
-public class PrintingPatterns {
+class PrintingPatterns {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        int size = s.nextInt();
-        String[][] pattern = new String[size][size];
-
-        for(int i = 0; i<size-1; i++){
-            for(int j = 0; j<size; j++){
-                if((i+j)%2==0){
-                    pattern[i][j] = "*";
-                }
-                else{
-                    pattern[i][j] = "#";
-                }
-            }
-                }
-
-                for(int i = 0; i<size-1; i++){
-                    for(int j = 0; j<size; j++){
-                        System.out.print(pattern[i][j]);
-
-                    }
-
-                    System.out.println();
-                        }
-                
-            
-            
-                s.close();
-            }
-    
         
-     
-    }
-    
-    
-    
-    
+        Scanner scanner = new Scanner(System.in);
 
+    
+        System.out.print("Please enter the size: ");
+
+        // Read the size of the pattern from the user
+        int size = scanner.nextInt();
+
+        // it calls nested for loops.
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                // Print '*' if the sum of row and column indices is even, otherwise print '#'
+                System.out.print(((i + j) % 2 == 0) ? "* " : "# ");
+            }
+            // Move to the next line after printing each row
+            System.out.println();
+        }
+
+  
+        scanner.close();
+    }
+}
