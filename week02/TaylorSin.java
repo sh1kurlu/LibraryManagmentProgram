@@ -16,7 +16,7 @@ public class TaylorSin {
         System.out.println("Math.sin(" + x + "): " + mathSin);
 
         // Compare with Math.sin(x) for different values of n
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= n; i++) {
             double taylorApproximation = calculateSin(x, i);
             System.out.println("sin("+ x +") with " + i + "nd term: " + taylorApproximation);
 
@@ -36,6 +36,7 @@ public class TaylorSin {
         return sinValue;
     }
 
+    // Factorial finding with Recursion:
      static double factorial(int n) {
         if (n == 0 || n == 1) {
             return 1;
