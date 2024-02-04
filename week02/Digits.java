@@ -6,6 +6,10 @@ public class Digits {
         Scanner s = new Scanner(System.in);
         int num = s.nextInt();
 
+        if(num < 0){
+            num *= -1;
+        }
+
         double sum = 0;
         int product = 1;
 
