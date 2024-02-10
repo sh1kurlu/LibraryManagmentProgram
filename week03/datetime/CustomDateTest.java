@@ -1,9 +1,30 @@
 package week03.datetime;
+import java.util.*;
 
 public class CustomDateTest {
     public static void main(String[] args) {
-        CustomDate date1 = new CustomDate(3, 3, 2020);
-        CustomDate date2 = new CustomDate(2, 10, 2024);
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Month Of Date1: ");
+        int date1_month = s.nextInt();
+
+        System.out.print("Day Of Date1: ");
+        int date1_day = s.nextInt();
+
+        System.out.print("Year Of Date1: ");
+        int date1_year = s.nextInt();
+
+        System.out.print("Month Of Date2: ");
+        int date2_month = s.nextInt();
+
+        System.out.print("Day Of Date2: ");
+        int date2_day = s.nextInt();
+
+        System.out.print("Year Of Date2: ");
+        int date2_year = s.nextInt();
+        
+        CustomDate date1 = new CustomDate(date1_month, date1_day, date1_year);
+        CustomDate date2 = new CustomDate(date2_month, date2_day, date2_year);
 
         System.out.print("Date 1: ");
         date1.displayDate();
