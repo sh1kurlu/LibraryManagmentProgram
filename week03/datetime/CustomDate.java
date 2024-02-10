@@ -15,6 +15,43 @@ public class CustomDate {
         }
     }
 
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        if (isValidMonth(month)) {
+            this.month = month;
+        } else {
+            System.out.println("Invalid month value.");
+        }
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        if (isValidDay(day, month, year)) {
+            this.day = day;
+        } else {
+            System.out.println("Invalid day value.");
+        }
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        if (isValidYear(year)) {
+            this.year = year;
+        } else {
+            System.out.println("Invalid year value.");
+        }
+    }
+
+
     private boolean isValidDate(int month, int day, int year) {
         return isValidMonth(month) && isValidDay(day, month, year) && isValidYear(year);
     }
