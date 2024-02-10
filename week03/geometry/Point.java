@@ -48,8 +48,5 @@ public class Point {
         return this.x == p.getX() && this.y == p.getY();
     }
 
-
-
-
 }
 
