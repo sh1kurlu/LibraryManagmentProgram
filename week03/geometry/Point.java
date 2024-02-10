@@ -25,7 +25,7 @@ public class Point {
     }
 
     public float getY(){
-        return x;
+        return y;
     }
 
     public void setY(float y){
@@ -37,10 +37,19 @@ public class Point {
         this.y = this.y + dY;
     }
 
-    
+    public float distance(Point p){
+        float dx = this.x - p.x;
+        float dy = this.y - p.y;
+        double distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+        return (float)distance;
+    }
+
+    public boolean equals(Point p){
+        return this.x == p.getX() && this.y == p.getY();
+    }
 
 
 
-    
+
 }
 
