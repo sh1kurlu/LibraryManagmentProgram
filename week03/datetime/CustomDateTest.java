@@ -22,7 +22,7 @@ public class CustomDateTest {
 
         System.out.print("Year Of Date2: ");
         int date2_year = s.nextInt();
-        
+
         CustomDate date1 = new CustomDate(date1_month, date1_day, date1_year);
         CustomDate date2 = new CustomDate(date2_month, date2_day, date2_year);
 
@@ -40,5 +40,9 @@ public class CustomDateTest {
 
         int result = CustomDate.compare(date1, date2);
         System.out.println("Comparison result: " + result);
+
+        s.close();
     }
+
+    
 }
