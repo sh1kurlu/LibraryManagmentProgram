@@ -1,26 +1,51 @@
 package week03.datetime;
 
 public class CustomDate {
-    private int month, day, year;
+    private int month;
+    private int day;
+    private int year;
 
-    public CustomDate(int month, int day, int year){
-        this.month = month;
-        this.day = day;
-        this.year = year;
+    public CustomDate(int month, int day, int year) {
+        if (isValidDate(month, day, year)) {
+            this.month = month;
+            this.day = day;
+            this.year = year;
+        } else {
+            System.out.println("Invalid date parameters.");
+        }
     }
 
-    public int getMonth(){
-        return month;
+    private boolean isValidDate(int month, int day, int year) {
+        return isValidMonth(month) && isValidDay(day, month, year) && isValidYear(year);
     }
 
-    public int getDay(){
-        return day;
+    private boolean isValidMonth(int month) {
+        return month >= 1 && month <= 12;
     }
 
-    public int getYear(){
-        return year;
+    private boolean isValidDay(int day, int month, int year) {
+        int maxDays = 31;
+        if (isValidMonth(month)) {
+            switch (month) {
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    maxDays = 30;
+                    break;
+                case 2:
+                    maxDays = (isLeapYear(year)) ? 29 : 28;
+                    break;
+            }
+        }
+        return day >= 1 && day <= maxDays;
     }
-    
 
+    private boolean isValidYear(int year) {
+        return year >= 1;
+    }
 
+    private boolean isLeapYear(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
 }
