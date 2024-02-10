@@ -23,5 +23,34 @@ public class Segment {
     public void setp2(Point pnt){
         this.p2 = pnt;
     }
-    
+    public void translate(float dX, float dY){
+        p1.translate(dX, dY);
+        p2.translate(dX, dY);
+    }
+    public float length() {
+        return p1.distance(p2);
+    }
+    public boolean equals(Segment s){
+        return this.p1.equals(s.getp1()) && this.p2.equals(s.getp2());
+    }
+    public float getSlope(){
+        return (p2.getY() - p1.getY()) / (p2.getX() - p1.getX());
+    }
+    public float getIntercept(){
+        float slope = getSlope();
+        return p1.getY() - slope * p1.getX();
+    }
+    public boolean isOnLine(Point p) {
+        return p.getY() == getSlope() * p.getX() + getIntercept();
+    }
+    public boolean isOnSegment(Point p) {
+        if (!isOnLine(p)) return false;
+
+        float minX = Math.min(p1.getX(), p2.getX());
+        float maxX = Math.max(p1.getX(), p2.getX());
+        float minY = Math.min(p1.getY(), p2.getY());
+        float maxY = Math.max(p1.getY(), p2.getY());
+        
+        return p.getX() >= minX && p.getX() <= maxX && p.getY() >= minY && p.getY() <= maxY;
+    }
 }
