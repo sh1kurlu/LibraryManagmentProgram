@@ -85,4 +85,34 @@ public class CustomDate {
     private boolean isLeapYear(int year) {
         return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     }
+
+    public void displayDate() {
+        System.out.println(month + "/" + day + "/" + year);
+    }
+
+    public int difference(CustomDate date) {
+        int daysInMonth = 30; 
+        return (year - date.getYear()) * 12 * daysInMonth +
+               (month - date.getMonth()) * daysInMonth +
+               (day - date.getDay());
+    }
+
+    public static int compare(CustomDate date1, CustomDate date2) {
+        if (date1.year < date2.year || (date1.year == date2.year && date1.month < date2.month) ||
+                (date1.year == date2.year && date1.month == date2.month && date1.day < date2.day)) {
+            return 1;
+        } else if (date1.year > date2.year || (date1.year == date2.year && date1.month > date2.month) ||
+                (date1.year == date2.year && date1.month == date2.month && date1.day > date2.day)) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    public void displayFormatted() {
+        String[] monthAbbreviations = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        System.out.println(day + " " + monthAbbreviations[month] + " " + year);
+    }
+
+    
 }
