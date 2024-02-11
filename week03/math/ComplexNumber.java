@@ -13,6 +13,27 @@ public class ComplexNumber {
         return this.real == number.real && this.imag == number.imag;
     }
 
+    public String toString() {
+        return real + " + " + imag + "i";
+    }
+
+    public double re() {
+        return real;
+    }
+
+    public double imag() {
+        return imag;
+    }
+
+    public ComplexNumber conjugate() {
+        return new ComplexNumber(real, -imag);
+    }
+
+    public ComplexNumber abs() {
+        double magnitude = Math.sqrt(real * real + imag * imag);
+        return new ComplexNumber(magnitude, 0);
+    }
+
     
     
 }
