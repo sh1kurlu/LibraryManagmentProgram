@@ -8,7 +8,7 @@ public class CustomTime {
         this.minute = minute;
         this.second = second;
 
-        
+        normalizeTime();
     }
 
     public CustomTime(){
@@ -42,7 +42,7 @@ public class CustomTime {
     }
 
     public String toUniversalString(){
-        return String.format("%02d: %02d: %02d", hour, minute, second);
+        return String.format("%02d:%02d:%02d", hour, minute, second);
     }
     
     public String toStandardString() {
@@ -66,4 +66,15 @@ public class CustomTime {
         return String.format("%d:%02d:%02d %s", newHour, minute, second, AmPm);
     }
 
+    public void normalizeTime() {
+        int extraMinutes = second / 60;
+        second %= 60;
+        minute += extraMinutes;
+
+        int extraHours = minute / 60;
+        minute %= 60;
+        hour += extraHours;
+
+        hour %= 24; 
+    }
 }
