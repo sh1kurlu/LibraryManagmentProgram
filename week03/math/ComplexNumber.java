@@ -13,7 +13,6 @@ public class ComplexNumber {
         return this.real == number.real && this.imag == number.imag;
     }
 
-    @Override
     public String toString() {
         return real + " + " + imag + "i";
     }
