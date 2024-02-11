@@ -41,7 +41,7 @@ public class CustomTime {
         return second;
     }
 
-    public String toUniversalString(int hour, int minute, int second){
+    public String toUniversalString(){
         return String.format("%02d: %02d: %02d", hour, minute, second);
     }
     
