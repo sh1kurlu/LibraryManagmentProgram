@@ -31,3 +31,10 @@
 | + getInvoiceAmount():|
 |   double            |
 +---------------------+
+|
+|   InvoiceTest        |
++----------------------+
+|                      |
+| + main(args: String[]):|
+|   void               |
++----------------------+

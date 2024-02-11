@@ -21,3 +21,10 @@
 | + mult(number: Complex|
 |   Number): ComplexNumber|
 +----------------------+
+|
+|   ComplexNumberTest   |
++----------------------+
+|                      |
+| + main(args: String[]):|
+|   void               |
++----------------------+

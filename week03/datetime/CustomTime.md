@@ -5,7 +5,7 @@
 | - minute: int       |
 | - second: int       |
 +---------------------+
-| + CustomTime(hour:  |
+| + CustomTime(hour:   |
 |   int, minute: int,  |
 |   second: int)       |
 | + CustomTime()       |
@@ -24,3 +24,10 @@
 |   String            |
 | + normalizeTime()    |
 +---------------------+
+|
+|   CustomTimeTest     |
++----------------------+
+|                      |
+| + main(args: String[]):|
+|   void               |
++----------------------+

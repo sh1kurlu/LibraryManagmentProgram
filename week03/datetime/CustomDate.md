@@ -22,3 +22,10 @@
 |   CustomDate): int   |
 | + displayFormatted() |
 +---------------------+
+|
+|   CustomDateTest     |
++----------------------+
+|                      |
+| + main(args: String[]):|
+|   void               |
++----------------------+
