@@ -34,6 +34,16 @@ public class ComplexNumber {
         return new ComplexNumber(magnitude, 0);
     }
 
+    public ComplexNumber add(ComplexNumber number) {
+        return new ComplexNumber(this.real + number.real, this.imag + number.imag);
+    }
+
+    public ComplexNumber sub(ComplexNumber number) {
+        return new ComplexNumber(this.real - number.real, this.imag - number.imag);
+    }
+
+    
+
     
     
 }
