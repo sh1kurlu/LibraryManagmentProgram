@@ -430,7 +430,7 @@ System.out.println("Invoice Amount: " + invoice.getInvoiceAmount());`
     `    }`
  `   }`
 
-###Getter and Setter Methods for month:
+### Getter and Setter Methods for month:
 - These methods provide access to and allow modification of the month variable.
 - The setter (setMonth) checks if the provided month value is valid using the isValidMonth method.
 
@@ -514,14 +514,14 @@ System.out.println("Invoice Amount: " + invoice.getInvoiceAmount());`
 
     `public int difference(CustomDate date) {`
     
-      `  // Designed to calculate the difference in months between the current date (this) and another CustomDate object passed as a parameter`
+     ` // Designed to calculate the difference in months between the current date (this) and another CustomDate object passed as a parameter`
       
   `  }`
 
 ### Static Comparison Method (compare):
 - This static method compares two dates and returns:
 - 1 if date1 is greater than date2
--1 if date1 is smaller than date2
+- -1 if date1 is smaller than date2
 - 0 if they are equal.
 
   `public static int compare(CustomDate date1, CustomDate date2) {`
@@ -545,7 +545,7 @@ System.out.println("Invoice Amount: " + invoice.getInvoiceAmount());`
 - Designed to test the functionality of the CustomDate class. 
 - It prompts the user to input values for two dates then creates CustomDate objects based on these inputs and  performs various operations such as 'displaying the dates', 'comparing them' and 'calculating the difference' (in days) between them.
 
-###Input for Date 1:
+### Input for Date 1:
 
 `System.out.print("Month Of Date1: ");`
 `int date1_month = s.nextInt();`
@@ -576,7 +576,7 @@ System.out.println("Invoice Amount: " + invoice.getInvoiceAmount());`
 `CustomDate date2 = new CustomDate(date2_month, date2_day, date2_year);`
 `CustomDate objects (date1 and date2) are created using the provided input values.`
 
-###Displaying Dates:
+### Displaying Dates:
 
 `System.out.print("Date 1: ");`
 `date1.displayDate();`
@@ -585,7 +585,7 @@ System.out.println("Invoice Amount: " + invoice.getInvoiceAmount());`
 
 - The dates are displayed using the displayDate method.
 
-###Displaying Formatted Dates:
+### Displaying Formatted Dates:
 
 `System.out.print("Formatted Date 1: ");`
 `date1.displayFormatted();`
@@ -679,7 +679,7 @@ package week03.datetime;
       `  // ...`
    ` }`
 
-##Normalize Time Method (normalizeTime):
+## Normalize Time Method (normalizeTime):
 - This method ensures that the time is normalized by adjusting minutes and hours if they exceed their respective ranges.
 
     `public void normalizeTime() {`
@@ -725,7 +725,7 @@ package week03.datetime;
    ` public boolean equals(ComplexNumber number) {`
       `  return this.real == number.real && this.imag == number.imag;`
 `    }`
-###Equals Method:
+### Equals Method:
 - The equals method checks if the current complex number is equal to another complex number by comparing their real and imaginary parts.
 
    ` public String toString() {`
@@ -785,13 +785,18 @@ package week03.datetime;
 ### Print Statements:
 
 - The program prints the string representations of num1 and num2 using the toString method.
-Equality Check:
+`System.out.println("num1: " + num1.toString());`
+`System.out.println("num2: " + num2.toString());`
+### Equality Check:
 
 - The program prints whether num1 is equal to num2 using the equals method.
+`System.out.println("Equals: " + num1.equals(num2));`
 
 ### Conjugate and Absolute Value:
 
 - The program prints the conjugate of num1 and the absolute value of num2 using the conjugate and abs methods, respectively.
+`System.out.println("Conjugate of num1: " + num1.conjugate().toString());`
+`System.out.println("Absolute value of num2: " + num2.abs().toString());`
 
 ### Arithmetic Operations:
 
@@ -801,9 +806,18 @@ Equality Check:
 - The product of num1 and num2 is calculated using the mult method.
 - The results of these operations are printed.
 
+`ComplexNumber sum = num1.add(num2);`
+`System.out.println("Sum: " + sum.toString());`
+
+`ComplexNumber difference = num1.sub(num2);`
+`System.out.println("Difference: " + difference.toString());`
+
+`ComplexNumber product = num1.mult(num2);`
+`System.out.println("Product: " + product.toString());`
+    
 - 'ComplexNumberTest' class allows the user to input real and imaginary parts for two complex numbers, performs various operations on them and prints the results. 
 - The class serves as a practical demonstration of the functionalities provided by the ComplexNumber class.
-- 
+
 
 
 
