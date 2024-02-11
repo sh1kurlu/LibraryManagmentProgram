@@ -42,8 +42,9 @@ public class ComplexNumber {
         return new ComplexNumber(this.real - number.real, this.imag - number.imag);
     }
 
-    
-
-    
-    
+    public ComplexNumber mult(ComplexNumber number){
+        double newReal = this.real * number.real - this.imag * number.imag;
+        double newImag = this.real * number.imag + this.imag * number.real;
+        return new ComplexNumber(newReal, newImag);
+    }
 }
