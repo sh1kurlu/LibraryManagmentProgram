@@ -2,7 +2,7 @@ package week04;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class SortingStrings {
+public class Task9 {
 
     public static String toSort(String input) {
         char[] sorted = input.toLowerCase().toCharArray();

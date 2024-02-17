@@ -1,6 +1,6 @@
 package week04;
 
-public class CommandLineArgument {
+public class Task1 {
 
     public static void main(String[] args) {
         printCommandLineArguments(args);
