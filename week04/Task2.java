@@ -4,61 +4,62 @@ import java.util.Scanner;
 
 public class Task2 {
     public static void main(String[] args) {
-        int[] elements;
+        int[] numbers;
 
         if (args.length > 0) {
-            elements = new int[args.length];
+            numbers = new int[args.length];
             for (int i = 0; i < args.length; i++) {
-                elements[i] = Integer.parseInt(args[i]);
+                numbers[i] = Integer.parseInt(args[i]);
             }
-            System.out.println(findMaximumElement(elements));
-            System.out.println(findMinimumElement(elements));
         } else {
             Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter the size of the array: ");
             int sizeOfArray = scanner.nextInt();
-            elements = new int[sizeOfArray];
+            numbers = new int[sizeOfArray];
+
+            System.out.println("Enter the elements of the array:");
             for (int i = 0; i < sizeOfArray; i++) {
-                elements[i] = scanner.nextInt();
+                numbers[i] = scanner.nextInt();
             }
             scanner.close();
         }
 
-        System.out.println(findMaximumElement(elements));
-        System.out.println(findMinimumElement(elements));
-        int[] minMax = findBothMinimumAndMaximum(elements);
-        System.out.println("Minimum element: " + minMax[0]);
-        System.out.println("Maximum element: " + minMax[1]);
+        System.out.println("Maximum: " + findMaximum(numbers));
+        System.out.println("Minimum: " + findMinimum(numbers));
+
+        int[] minMax = findBothMinimumAndMaximum(numbers);
+        System.out.println("Both Minimum and Maximum: " + minMax[0] + ", " + minMax[1]);
     }
 
-    public static int findMaximumElement(int[] elements) {
-        int maximum = elements[0];
-        for (int i = 1; i < elements.length; i++) {
-            if (elements[i] > maximum) {
-                maximum = elements[i];
+    public static int findMaximum(int[] numbers) {
+        int maximum = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > maximum) {
+                maximum = numbers[i];
             }
         }
         return maximum;
     }
 
-    public static int findMinimumElement(int[] elements) {
-        int minimum = elements[0];
-        for (int i = 1; i < elements.length; i++) {
-            if (elements[i] < minimum) {
-                minimum = elements[i];
+    public static int findMinimum(int[] numbers) {
+        int minimum = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] < minimum) {
+                minimum = numbers[i];
             }
         }
         return minimum;
     }
 
-    public static int[] findBothMinimumAndMaximum(int[] elements) {
-        int maximum = elements[0];
-        int minimum = elements[0];
-        for (int i = 1; i < elements.length; i++) {
-            if (elements[i] > maximum) {
-                maximum = elements[i];
+    public static int[] findBothMinimumAndMaximum(int[] numbers) {
+        int maximum = numbers[0];
+        int minimum = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > maximum) {
+                maximum = numbers[i];
             }
-            if (elements[i] < minimum) {
-                minimum = elements[i];
+            if (numbers[i] < minimum) {
+                minimum = numbers[i];
             }
         }
         return new int[]{minimum, maximum};
