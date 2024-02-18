@@ -6,7 +6,7 @@
 ### Feb 18
 - added a 'ToString' method to `Point.java` file because 'Task 17' The commit id (SHA, hash) value is `ca76998890d95c688fd625c7aa9d8eff02430a60`. +`ca76998`
 - 
-- added a 'ToString' method to Every week03 .java files because 'Task 18' The commit id (SHA, hash) value is `ca76998890d95c688fd625c7aa9d8eff02430a60`. +`` and `0e6ab2cee3cd5694d12d0e849df09d11b78df673`.
+- added a 'ToString' method to Every week03 .java files because 'Task 18' The commit id (SHA, hash) value is `0e6ab2cee3cd5694d12d0e849df09d11b78df673`. +`` and `0e6ab2cee3cd5694d12d0e849df09d11b78df673`.
 
 ## Week02 Folder
 
