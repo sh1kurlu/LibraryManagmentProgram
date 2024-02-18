@@ -14,7 +14,15 @@ public class Task11 {
             }
         }
         
+        
         return String.join(" ", words);
+    }
+
+    public static void main(String[] args) {
+
+        String input = "This is PP2 Fall 2021";
+        String output = swapFirstAndLast(input);
+        System.out.println(output);
     }
 
 
