@@ -819,6 +819,455 @@ package week03.datetime;
 - The class serves as a practical demonstration of the functionalities provided by the ComplexNumber class.
 
 
+---
+## Week 04
+### Task1
+
+- The Task1 program is a simple Java application that takes command line arguments as input, converts them into an array of integers, and then calculates and prints the sum and average of those integers.
+
+### Main Method:
+- The main method is the entry point of the program.
+- It first calls the printCommandLineArguments method to display the command line arguments.
+- If there are command line arguments provided (args.length > 0), it proceeds to convert the arguments to an array of integers using parseArgumentsToIntArray.
+- It then prints the integer array using printIntArray and calculates/print the sum and average using printSumAndAverage.
+- If no arguments are provided, it prints a message stating "No integers provided."
+- Helper Methods:
+- printCommandLineArguments: Takes an array of strings (command line arguments) and prints each argument on a new line.
+
+- parseArgumentsToIntArray: Takes an array of strings and converts them into an array of integers using Integer.parseInt. Returns the resulting integer array.
+
+- printIntArray: Takes an array of integers and prints them on the same line, separated by a space.
+
+- printSumAndAverage: Takes an array of integers, calculates the sum using calculateSum, then calculates and prints the average.
+
+- calculateSum: Takes an array of integers and calculates the sum using a simple loop.
+
+- Usage:
+To use the program
+1) Compile the Task1.java file.
+2) Execute the generated class file.
+3) Optionally provide integers as command line arguments
+
+- Input:
+`java Task1 5 10 15`
+- Output:
+`Command Line Arguments:`
+`5`
+`10`
+`15`
+`Integer Array:`
+`5 10 15 `
+`Sum: 30`
+`Average: 10.0`
+
+## Task2
+- Code Explanation:
+The Task2 program is a Java application that finds the maximum, minimum, and both minimum and maximum values in an array of integers. It allows the user to either input the array size and elements manually or provide the array as command line arguments.
+
+- Main Method:
+Declares an array of integers named numbers.
+If command line arguments are provided (args.length > 0), it initializes the numbers array with the provided values.
+- If no command line arguments are provided, it prompts the user to enter the size of the array and then the array elements manually using a Scanner object.
+- Calls three methods (findMaximum, findMinimum, findBothMinimumAndMaximum) to find and print the maximum, minimum, and both minimum and maximum values in the array.
+- Helper Methods:
+- findMaximum: Takes an array of integers and iterates through it to find and return the maximum value.
+
+- findMinimum: Takes an array of integers and iterates through it to find and return the minimum value.
+
+- findBothMinimumAndMaximum: Takes an array of integers and iterates through it to find and return both the minimum and maximum values as an array.
+
+- Usage:
+- To use the program:
+
+1) Compile the Task2.java file.
+2) Execute the generated class file.
+3) If using command line arguments, provide the array values separated by spaces.
+4) If not using command line arguments, enter the size of the array and the array elements manually.
+Example:
+- Using Command Line Arguments:
+
+Input:
+`java Task2 5 10 3 8 15`
+Output:
+
+`Maximum: 15`
+`Minimum: 3`
+`Both Minimum and Maximum: 3, 15`
+
+- Without Command Line Arguments:`
+
+`Enter the size of the array: 4`
+`Enter the elements of the array:`
+`20 4 12 8`
+
+- Output:
+
+`Maximum: 20`
+`Minimum: 4`
+`Both Minimum and Maximum: 4, 20`
+
+## Task3
+- Code Explanation:
+The Task3 program is a Java application that takes a list of integer grades, calculates and prints the mean, median, mode, and histogram of the grades.
+
+- Main Method:
+Creates a Scanner object for user input and an ArrayList<Integer> to store grades.
+
+- Reads integer grades from the user until no more integers are entered, adding them to the gradesList.
+- Converts gradesList to an array of integers named grades.
+- Calls findMeanMedianAndMode to calculate mean, median, and mode, and then prints them.
+- Calls calculateHistogram to compute the histogram of the grades and prints the result.
+- Helper Methods:
+- findMeanMedianAndMode: Takes an array of integers, sorts it, and calculates and returns the mean, median, and mode.
+
+- Median: If the array size is even, it takes the average of the two middle elements. If odd, it takes the middle element.
+- Mean: Calculates the average of all the elements in the array.
+- Mode: Finds the mode (the number that appears most frequently) in the array.
+- calculateHistogram: Takes an array of integers representing grades, determines the range of grades, and creates a histogram.
+
+- Finds the minimum and maximum grades.
+- Calculates the number of bins (unique grades).
+- Initializes an array histogram to store the frequency of each grade.
+- Populates the histogram by incrementing the corresponding bin for each grade.
+- Usage:
+To use the program:
+
+1) Compile the Task3.java file.
+2) Execute the generated class file.
+3) Enter integer grades when prompted. To end input, press Ctrl+D (Unix/Linux) or Ctrl+Z (Windows).
+4) The program will output the mean, median, mode, and histogram of the entered grades.
+
+- Example:
+Input:
+
+`85 92 78 92 90 78 88 87 80 82 85 78 90`
+- Output:
+
+
+`Mean: 84.0`
+`Median: 85.5`
+`Mode: 78`
+
+`Histogram:`
+`78: 3`
+`79: 0`
+`80: 1`
+`81: 0`
+`82: 1`
+`83: 0`
+`84: 0`
+`85: 2`
+`86: 0`
+`87: 1`
+`88: 1`
+`89: 0`
+`90: 2`
+`91: 0`
+`92: 2`
+
+
+## Task7
+
+- Code Explanation:
+The Task7 program is a Java application that takes a string as input, reverses it, and then prints the reversed string.
+
+- Main Method:
+- Initializes a string input with the value "Salam".
+- Calls the reverseString method, passing the input string.
+- Prints the reversed string.
+- Helper Method:
+reverseString: Takes a string as input, iterates through its characters in reverse order, and builds a reversed string using StringBuilder.
+
+
+- Usage:
+To use the program:
+
+1) Compile the Task7.java file.
+2) Execute the generated class file.
+3) The program will output the reversed string.
+- Example:
+Output:
+
+`Reversed String: malaS`
+
+## Task 8 
+
+- Code Explanation:
+The Task8 program is a Java application that takes a string as input, "explodes" it, and then prints the resulting exploded string. The concept of exploding here means that for each character in the input string, it appends all the characters from the beginning of the string up to that position.
+
+- Main Method:
+- Initializes a string input with the value "Baku".
+ Calls the explodeString method, passing the input string.
+- Prints the exploded string.
+- Helper Method:
+- 'explodeString': Takes a string as input, iterates through its characters, and for each character, appends all the characters from the beginning of the string up to that position using StringBuilder.
+- Usage:
+To use the program:
+
+1) Compile the Task8.java file.
+2) Execute the generated class file.
+3) The program will output the exploded string.
+
+- Example:
+Output:
+
+`Exploded String: BBAABAKBAKUBAKU`
+
+## Task 9 
+- Code Explanation:
+- The Task9 program is a Java application that takes a string as input, converts it to lowercase(`.toLowerCase()`), sorts the characters in a case-insensitive manner, and then prints the resulting sorted string.
+
+- Main Method:
+- Creates a Scanner object for user input.
+- Reads a line of text from the user.
+- Calls the 'toSort' method, passing the input string.
+- Prints the sorted string.
+- Helper Method:
+- 'toSort': Takes a string as input, converts it to lowercase, creates a character array, sorts it, and returns the sorted string.
+- Usage:
+To use the program:
+
+1) Compile the Task9.java file.
+2) Execute the generated class file.
+3) Enter a line of text when prompted.
+4) The program will output the sorted version of the entered text.
+- Example:
+Input:
+
+`Hello World`
+- Output:
+
+`Sorted Text: dehllloorw`
+
+## Task 10
+- Code Explanation:
+The Task10 program is a Java application that checks whether two strings are anagrams. Anagrams are words or phrases formed by rearranging the letters of another, using all the original letters exactly once.
+
+- Main Method:
+- Initializes two strings, str1 and str2, with values "Alasm" and "Salam" respectively.
+- Calls the 'areAnagrams' method, passing the two strings.
+- Prints the result, indicating whether the strings are anagrams.
+- Helper Method:
+- 'areAnagrams': Takes two strings as input, converts them to lowercase, checks if their lengths are equal, converts them to character arrays, sorts the arrays, and then checks if they are equal using Arrays.equals.
+- Usage:
+To use the program:
+
+1) Compile the Task10.java file.
+2) Execute the generated class file.
+3) The program will output whether the given strings are anagrams.
+- Example:
+
+- Input: 
+`Alasm`
+`Salam`
+Output:
+
+`Result: true`
+
+## Task 11
+- Code Explanation:
+- The Task11 program is a Java application that takes a sentence as input, swaps the first and last letters of each word (if the word has more than one letter), and then prints the modified sentence.
+
+- Main Method:
+- Initializes a string input with the value "This is PP2 Fall 2021".
+- Calls the swapFirstAndLast method, passing the input string.
+- Prints the modified sentence.
+ Helper Method:
+- swapFirstAndLast: Takes a sentence as input, splits it into words using space as a delimiter, iterates through the words, and swaps the first and last letters (if the word has more than one letter). The modified words are then joined to form the modified sentence.
+Usage:
+To use the program:
+
+1) Compile the Task11.java file.
+2) Execute the generated class file.
+3) The program will output the modified sentence.
+- Example:
+
+- Input: 
+`"This is PP2 Fall 2021"`
+Output:
+`sihT si PP2 llaF 1202`
+- Note:
+The program modifies each word in the sentence by swapping its first and last letters, considering only words with more than one letter.
+
+# Task 12
+
+- Code Explanation:
+The Task12 program is a Java application that takes two strings as input, a main string, and a substring. It then finds and prints the index at which the substring is found in the main string.
+
+- Main Method:
+- Creates a Scanner object for user input.
+- Reads two lines of text from the user, representing the main string and the substring.
+- Calls the findSubstringIndex method, passing the main string and substring.
+- Prints the index at which the substring is found, or -1 if not found.
+- Helper Method:
+- 'findSubstringIndex': Takes a main string and a substring as input and iterates through the main string to find the index where the substring starts. If the substring is not found, it returns -1.
+
+- Usage:
+To use the program:
+
+1) Compile the Task12.java file.
+2) Execute the generated class file.
+3) Enter the main string and substring when prompted.
+4) The program will output the index at which the substring is found or -1 if not found.
+
+- Example:
+Input:
+
+`Hello World`
+`World`
+Output:
+`The program performs a simple substring search by iterating through the main string and comparing substrings of the same length to the given substring.`
+
+## Task 13
+- Code Explanation:
+The Task13 program is a Java application that takes a single word as input and prints all possible slices of the word by inserting a space at different positions.
+
+- Main Method:
+- Creates a Scanner object for user input.
+Reads a line of text from the user, representing the input word.
+Iterates through each position in the word and prints a slice of the word by inserting a space at that position.
+- Usage:
+To use the program:
+
+1) Compile the Task13.java file.
+2) Execute the generated class file.
+3) Enter a word when prompted.
+4) The program will output all possible slices of the word by inserting a space at different positions.
+- Example:
+Input:
+
+`hello`
+
+- Output:
+
+` hello`
+`h ello`
+`he llo`
+`hel lo`
+`hello `
+
+- Note:
+The program demonstrates how to generate all possible slices of a word by inserting a space at different positions. It uses the 'substring method' to achieve this
+
+## Task 15
+
+- Code Explanation:
+The Task15 program is a Java application that takes user input to create an array of invoices and then prints the invoice amounts for each invoice.
+
+- Main Method:
+- Creates a Scanner object for user input.
+- Reads the number of invoices as an integer.
+- Initializes an array of Invoice objects with the given number of invoices.
+- Reads input for each invoice, including part number, description, quantity of item, and price per item.
+- Creates an Invoice object for each set of inputs and adds it to the array.
+- Prints the invoice amounts for each invoice.
+
+- Usage:
+To use the program:
+
+1) Compile the Task15.java file.
+2) Execute the generated class file.
+3) Enter the number of invoices and input details for each invoice as prompted.
+4) The program will output the invoice amounts for each invoice.
+- Example:
+- Input:
+
+`2`
+`ABC123`
+`Product 1`
+`5`
+`10.5`
+`XYZ456`
+`Product 2`
+`3`
+`15.2`
+- Output:
+
+`52.5`
+`45.6`
+- Note:
+The program utilizes the Invoice class (from week03.invoice.Invoice) to create and store invoice details. It then calculates and prints the invoice amounts for each invoice.
+
+## Task 16
+- Code Explanation:
+- The Task16 program is a Java application that takes user input to create an array of points and then finds and prints the extreme points in terms of northernmost, southernmost, westernmost, and easternmost.
+
+- Main Method:
+- Creates a Scanner object for user input.
+- Reads the number of points as an integer.
+- Initializes an array of Point objects with the given number of points.
+- Reads input for each point, including x and y coordinates.
+- Creates a Point object for each set of inputs and adds it to the array.
+- Initializes variables to store northernmost, southernmost, westernmost, and easternmost points.
+- Iterates through the points to find extreme points based on coordinates.
+- Calls the printExtremePoints method for each extreme point.
+- Helper Method:
+- printExtremePoints: Takes an array of points and a coordinate value as input, and prints points that have the specified x or y coordinate.
+- Usage:
+To use the program:
+
+1) Compile the Task16.java file.
+2) Execute the generated class file.
+3) Enter the number of points and input details for each point as prompted.
+4) The program will output the extreme points for northernmost, southernmost, westernmost, and easternmost.
+- Example:
+Input:
+
+
+`3`
+`2.5 4.0`
+`1.0 3.0`
+`3.0 5.0`
+- Output:
+
+`(2.5, 4.0)`
+`(1.0, 3.0)`
+`(2.5, 4.0)`
+`(1.0, 3.0)`
+`(1.0, 3.0)`
+`(3.0, 5.0)`
+`(1.0, 3.0)`
+`(3.0, 5.0)`
+
+- Note:
+The program utilizes the Point class (from week03.geometry.Point) to create and store point details. It then finds and prints the extreme points based on coordinates
+
+## Task 17 
+- Code Explanation:
+- The Task17 program is a Java application that takes user input to create an array of line segments and then finds and prints the segments with the minimum length.
+
+- Main Method:
+- Creates a Scanner object for user input.
+- Reads the number of line segments as an integer.
+- Initializes an array of Segment objects with the given number of line segments.
+- Reads input for each line segment, including coordinates of two points.
+- Creates a Segment object for each set of inputs and adds it to the array.
+- Calls the findSegmentsWithMinimumLength method to find line segments with the minimum length.
+- Prints the line segments with the minimum length.
+- Helper Method:
+- 'findSegmentsWithMinimumLength': Takes an array of line segments and finds segments with the minimum length. It returns an array containing all segments with the minimum length.
+- Usage:
+To use the program:
+
+1) Compile the Task17.java file.
+2) Execute the generated class file.
+3) Enter the number of line segments and input details for each segment as prompted.
+4) The program will output the line segments with the minimum length.
+- Example:
+Input:
+
+`3`
+`0.0 0.0 2.0 0.0`
+`0.0 0.0 0.0 3.0`
+`1.0 1.0 4.0 1.0`
+
+- Output:
+
+`0.0 - 2.0`
+- Note:
+The program utilizes the Segment class (from week03.geometry.Segment) to create and store line segment details. It then finds and prints the line segments with the minimum length
+
+
 
 
 
