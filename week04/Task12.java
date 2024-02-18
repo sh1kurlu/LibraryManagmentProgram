@@ -1,9 +1,11 @@
 package week04;
+import java.util.*;
 
 public class Task12 {
     public static void main(String[] args) {
-        String mainString = "Hello, world!";
-        String subString = "world";
+        Scanner s = new Scanner(System.in);
+        String mainString = s.nextLine();
+        String subString = s.nextLine();
 
         int index = findSubstringIndex(mainString, subString);
 
