@@ -53,4 +53,10 @@ public class Segment {
         
         return p.getX() >= minX && p.getX() <= maxX && p.getY() >= minY && p.getY() <= maxY;
     }
+
+    public String toString() {
+        return String.format("[%s, %s]", p1.toString(), p2.toString());
+    }
+
+    
 }

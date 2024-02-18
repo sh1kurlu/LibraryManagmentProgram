@@ -47,4 +47,6 @@ public class ComplexNumber {
         double newImag = this.real * number.imag + this.imag * number.real;
         return new ComplexNumber(newReal, newImag);
     }
+
+    
 }

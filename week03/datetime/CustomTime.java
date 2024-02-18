@@ -77,4 +77,8 @@ public class CustomTime {
 
         hour %= 24; 
     }
+
+    public String toString() {
+        return String.format("%02d:%02d:%02d", hour, minute, second);
+    }
 }

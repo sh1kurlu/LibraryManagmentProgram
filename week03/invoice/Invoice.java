@@ -58,4 +58,9 @@ public class Invoice {
     public double getInvoiceAmount(){
         return (double) price * quantity;
     }
+
+    public String toString() {
+        return String.format("Invoice[PartNumber=%s, PartDescription=%s, Quantity=%d, Price=%.2f]",
+                partNumber, partDescription, quantity, price);
+    }
 }

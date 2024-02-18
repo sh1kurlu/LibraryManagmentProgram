@@ -48,8 +48,11 @@ public class Point {
         return this.x == p.getX() && this.y == p.getY();
     }
 
+
     public String toString() {
-        return "(" + x + ", " + y + ")";
+        StringBuilder sb = new StringBuilder();
+        sb.append("(").append(x).append(", ").append(y).append(")");
+        return sb.toString();
     }
 
 }

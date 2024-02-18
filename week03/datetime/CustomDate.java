@@ -114,5 +114,9 @@ public class CustomDate {
         System.out.println(day + " " + monthAbbreviations[month] + " " + year);
     }
 
+    public String toString() {
+        return String.format("%02d/%02d/%04d", month, day, year);
+    }
+
     
 }
