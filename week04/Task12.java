@@ -14,6 +14,8 @@ public class Task12 {
         } else {
             System.out.println(-1);
         }
+
+        s.close();
     }
 
     private static int findSubstringIndex(String mainString, String subString) {
