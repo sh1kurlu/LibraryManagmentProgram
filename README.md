@@ -1274,20 +1274,16 @@ Input:
 - Note:
 The program utilizes the Segment class (from week03.geometry.Segment) to create and store line segment details. It then finds and prints the line segments with the minimum length
 
+## Task 18
+### `toString()` Method with `StringBuilder` Explanation
 
+- The `toString()` method is a commonly overridden method in Java classes to provide a string representation of an object. When using `StringBuilder` to build the string representation, it improves performance compared to concatenating strings directly.
 
+- Here's an example of the `toString()` method with `StringBuilder`:
 
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
+```java
+public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("[").append(p1.toString()).append(", ").append(p2.toString()).append("]");
+    return sb.toString();
+}`
