@@ -115,7 +115,14 @@ public class CustomDate {
     }
 
     public String toString() {
-        return String.format("%02d/%02d/%04d", month, day, year);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(String.format("%02d", month))
+                     .append("/")
+                     .append(String.format("%02d", day))
+                     .append("/")
+                     .append(String.format("%04d", year));
+    
+        return stringBuilder.toString();
     }
 
     

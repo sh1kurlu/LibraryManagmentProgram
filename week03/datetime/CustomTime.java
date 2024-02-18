@@ -79,6 +79,12 @@ public class CustomTime {
     }
 
     public String toString() {
-        return String.format("%02d:%02d:%02d", hour, minute, second);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(String.format("%02d", hour))
+                     .append(":")
+                     .append(String.format("%02d", minute))
+                     .append(":")
+                     .append(String.format("%02d", second));
+        return stringBuilder.toString();
     }
 }

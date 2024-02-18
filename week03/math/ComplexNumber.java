@@ -13,10 +13,6 @@ public class ComplexNumber {
         return this.real == number.real && this.imag == number.imag;
     }
 
-    public String toString() {
-        return real + " + " + imag + "i";
-    }
-
     public double re() {
         return real;
     }
@@ -47,6 +43,13 @@ public class ComplexNumber {
         double newImag = this.real * number.imag + this.imag * number.real;
         return new ComplexNumber(newReal, newImag);
     }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(real).append(" + ").append(imag).append("i");
+        return sb.toString();
+    }
+    
 
     
 }

@@ -60,7 +60,12 @@ public class Invoice {
     }
 
     public String toString() {
-        return String.format("Invoice[PartNumber=%s, PartDescription=%s, Quantity=%d, Price=%.2f]",
-                partNumber, partDescription, quantity, price);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Invoice[PartNumber=").append(partNumber)
+          .append(", PartDescription=").append(partDescription)
+          .append(", Quantity=").append(quantity)
+          .append(", Price=").append(String.format("%.2f", price)).append("]");
+        return sb.toString();
     }
+    
 }

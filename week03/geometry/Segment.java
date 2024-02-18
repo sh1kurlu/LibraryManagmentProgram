@@ -55,8 +55,11 @@ public class Segment {
     }
 
     public String toString() {
-        return String.format("[%s, %s]", p1.toString(), p2.toString());
+        StringBuilder sb = new StringBuilder();
+        sb.append("[").append(p1.toString()).append(", ").append(p2.toString()).append("]");
+        return sb.toString();
     }
+    
 
     
 }
