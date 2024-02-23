@@ -1286,4 +1286,109 @@ public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("[").append(p1.toString()).append(", ").append(p2.toString()).append("]");
     return sb.toString();
-}`
+}
+```
+
+
+## Week 5
+### Task 1
+### `Class X`:
+
+- Defines a class X with a default constructor that prints "In constructor X."
+
+### `Class Y extends X`:
+
+- Defines a class Y that extends class X.
+- Has its own default constructor that prints "In constructor Y."
+- Calls the constructor of its superclass X implicitly before its own constructor.
+
+### `Main class`:
+
+- Contains the main method.
+- Creates an object of class Y (Y y = new Y();).
+
+### When the program is executed, it prints the following output:
+
+- When you run the main method, it creates an object of class Y, which implicitly calls the default constructor of its superclass X before its own constructor. Therefore, the output of the given code will be:
+
+`In constructor X.`
+`In constructor Y.`
+
+- This is because the constructor of the superclass (X) is always called before the constructor of the subclass (Y) when an object of the subclass is created.
+
+## Task 2
+
+### `Class A`:
+- Defines a class A with a static initialization block and an instance initialization block.
+- The static initialization block `(static { System.out.println("In static init block of A"); })` is executed when the class is loaded, printing "In static init block of A."
+
+- The instance initialization block `({ System.out.println("In instance init block of A"); })` is executed before the constructor when an instance of the class is created, printing "In instance init block of A."
+- Has a default constructor `(public A() { System.out.println("In constructor A."); })` that prints "In constructor A."
+
+### `Class B extends A`:
+- Defines a class B that extends class A with similar static and instance initialization blocks.
+- The static initialization block `(static { System.out.println("In static init block of B"); })` is executed when the class is loaded, printing `"In static init block of B."`
+
+- The instance initialization block `({ System.out.println("In instance init block of B"); })` is executed before the constructor when an instance of the class is created, printing `"In instance init block of B."`
+
+- Has a default constructor `(public B() { System.out.println("In constructor B."); })` that prints `"In constructor B."`
+
+### `Main2 class`:
+- Contains the main method.
+- Creates an object of class B (B b = new B();).
+### When the program is executed, it prints the following output:
+- The static initialization blocks are executed when the classes A and B are loaded. Therefore, the output includes the static init blocks of both classes.
+- The instance initialization blocks are executed before the constructors when objects of classes A and B are created.
+- The constructors are called after the instance initialization blocks.
+
+Therefore, the output of the given code will be:
+
+`In static init block of A`
+`In instance init block of A`
+`In constructor A.`
+`In static init block of B`
+`In instance init block of B`
+`In constructor B.`
+
+- This is because static blocks are executed when the class is loaded and instance blocks are executed when an instance of the class is created. 
+- The order of execution is static blocks first (in the order they appear in the class hierarchy) followed by instance blocks and ,finally, the constructor.
+
+
+## Task 3
+### `OverrideDemo class`:
+- Contains the main method.
+- Creates an object of class Child (Child child = new Child();).
+- Calls the calcValue method on the child object with one and two arguments.
+- Prints the results of the method calls.
+### `Parent class`:
+- Defines a class Parent with a method calcValue that takes one parameter.
+- The method in the Parent class prints "Super" and returns the result of multiplying the parameter by 2.
+
+### `Child class extends Parent`:
+- Defines a class Child that extends class Parent.
+- Overrides the calcValue method from the Parent class by providing a new implementation that takes two parameters.
+- The overridden method in the Child class prints "Subclass" and returns the result of multiplying the sum of the two parameters by 2.
+
+### When the program is executed, it prints the following output:
+- The calcValue method of the Child class is called twice with different numbers of arguments.
+- For the first call (child.calcValue(5)), the method in the Parent class is executed (since it doesn't have a method with two parameters). The output will be "Super," and the result is 5 * 2 = 10.
+- For the second call (child.calcValue(5, 10)), the overridden method in the Child class is executed. The output will be "Subclass," and the result is (5 + 10) * 2 = 30.
+
+### Therefore, the output of the given code will be:
+
+`Super`
+`10`
+`Subclass`
+`30`
+- This is because method overriding allows the subclass to provide a specific implementation for a method already defined in its superclass. 
+- The method to be executed is determined at runtime based on the actual type of the object.
+
+
+
+
+
+
+
+
+
+
