@@ -5,8 +5,12 @@
 ## week03
 ### Feb 18
 - added a 'ToString' method to `Point.java` file because 'Task 17' The commit id (SHA, hash) value is `ca76998890d95c688fd625c7aa9d8eff02430a60`. +`ca76998`
-- 
+
 - added a 'ToString' method to Every week03 .java files because 'Task 18' The commit id (SHA, hash) value is `0e6ab2cee3cd5694d12d0e849df09d11b78df673`. +`` and `0e6ab2cee3cd5694d12d0e849df09d11b78df673`.
+
+## week03
+### Feb 24
+- Changed and overrided 'toString()' and 'equals(Object obj)' methods of 'Point.java' and 'Circle.java'. The commit _hash_ value is `92def0aa99199acc95a0dd1e3ac920c3acec1799`
 
 ## Week02 Folder
 
@@ -1289,8 +1293,8 @@ public String toString() {
 }
 ```
 
-
-## Week 5
+---
+# Week 5
 ### Task 1
 ### `Class X`:
 
@@ -1410,61 +1414,66 @@ public String toString() {
 - Definition: _Single inheritance occurs when a class inherits from only one superclass._
 - Example:
 
-`class Animal {`
-   ` void eat() {`
-        `System.out.println("Eating...");`
- `   }`
-`}`
+```java 
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+  }
+ }
 
 `class Dog extends Animal {`
- `   void bark() {`
-  `      System.out.println("Barking...");`
-  ` }`
-`}`
+    void bark() {
+        System.out.println("Barking...");
+   }
+}
+```
 
 ### 2. Multilevel Inheritance:
 - Definition: _Multilevel inheritance occurs when a class is derived from a class, and then another class is derived from that derived class._
 - Example:
+```java
+class A {
+    void display() {
+        System.out.println("Class A");
+  }
+}
 
-`class A {`
-    `void display() {`
-     `   System.out.println("Class A");`
- `   }`
-`}`
+class B extends A {
+    void show() {
+        System.out.println("Class B");
+    }
+}
 
-`class B extends A {`
-    `void show() {`
-    `    System.out.println("Class B");`
-    `}`
-`}`
-
-`class C extends B {`
-   ` void print() {`
-       ` System.out.println("Class C");`
-  ` }`
-`}`
+class C extends B {
+    void print() {
+        System.out.println("Class C");
+   }
+}
+```
 
 ### 3. Hierarchical Inheritance:
 - Definition: _Hierarchical inheritance occurs when multiple classes inherit from a single superclass._
 - Example:
+```java
+class Shape {
+    void draw() {
+       System.out.println("Drawing...");
+    }
+}
 
-`class Shape {`
-   ` void draw() {`
-  `      System.out.println("Drawing...");`
-`    }`
-`}`
+class Circle extends Shape {
+   void drawCircle() {
+        System.out.println("Drawing Circle...");
+    }
+}
 
-`class Circle extends Shape {`
-   ` void drawCircle() {`
-   `     System.out.println("Drawing Circle...");`
-`    }`
-`}`
 
-`class Square extends Shape {`
-   ` void drawSquare() {`
-      `  System.out.println("Drawing Square...");`
-  `  }`
-`}`
+class Square extends Shape {
+    void drawSquare() {
+        System.out.println("Drawing Square...");
+    }
+}
+```
 
 ### 4. Multiple Inheritance:
 - Definition: _Multiple inheritance occurs when a class inherits from more than one superclass._
@@ -1472,44 +1481,46 @@ public String toString() {
 
 - Example: 
 
+```java
+interface A {
+    void methodA();
+}
 
-`interface A {`
-  `  void methodA();`
-`}`
+interface B {
+    void methodB();
+}
 
-`interface B {`
-    `void methodB();`
-}`
+class C implements A, B {
+  public void methodA() {
+       System.out.println("Method A");
+   }
 
-`class C implements A, B {`
-  `  public void methodA() {`
-     `   System.out.println("Method A");`
-  `  }`
-
-  `  public void methodB() {`
-  `      System.out.println("Method B");`
-  `  }`
-`}`
-
+    public void methodB() {
+    System.out.println("Method B");
+    }
+}
+```
 ### 5. Hybrid Inheritance:
 - Definition: _Hybrid inheritance is a combination of two or more types of inheritance (mix of others such as single, multiple, multilevel, etc.) in a single program._
 Example: __(Combining single and multiple inheritance using classes and interfaces)__
 
-`class D {`
-    `void display() {`
-       ` System.out.println("Class D");`
-    `}`
-`}`
+```java
+class D {
+    void display() {`
+        System.out.println("Class D");`
+    }
+}
 
 `interface E {`
- `   void show();`
-`}`
+    void show();
+}
 
-`class F extends D implements E {`
-   ` public void show() {`
-      `  System.out.println("Interface E");`
-   ` }`
-`}`
+class F extends D implements E {
+    public void show() {
+        System.out.println("Interface E");
+    }
+}
+```
 
 __As it can been seen from the examples, Java supports single and multilevel inheritance through 'classes' and 'interface-based' multiple inheritance.__
 
@@ -1530,6 +1541,133 @@ __As it can been seen from the examples, Java supports single and multilevel inh
 ---
 - So to _summarize_, ClassB is hiding the static methods 'methodOne' and 'methodFour' from ClassA and it is overriding the instance method 'methodTwo' from ClassA. 
 - 'methodThree' in ClassB is not overriding or hiding anything because it's a static method and static methods __cannot be overridden__ in Java.
+
+
+## MathDemo(Task 7)
+### `Code Explanation`:
+
+- The MathDemo class is a Java utility class that provides methods for basic mathematical operations and factorial calculation.
+
+### __Methods__:
+### 'min' method:
+
+- Takes two integers a and b as parameters.
+- Returns the minimum of the two integers.
+
+### 'max' method:
+
+- Takes two integers a and b as parameters.
+- Returns the maximum of the two integers.
+
+### 'sum' method:
+
+- Takes an array of integers args as a parameter.
+- Calculates and returns the sum of all elements in the array.
+
+### 'mean' method:
+
+- Takes an array of integers args as a parameter.
+- Calculates and returns the mean (average) of the elements in the array.
+
+### 'factorial' method:
+
+- Takes an integer n as a parameter.
+- Recursively calculates and returns the factorial of n.
+- _Note_: If n is negative, it returns -1.
+### `Usage`:
+
+- To use the MathDemo class, create an instance of the class and call its methods with appropriate parameters.
+### Example:
+
+```java
+MathDemo mathDemo = new MathDemo();
+int minResult = mathDemo.min(3, 7); // minResult is 3
+int maxResult = mathDemo.max(3, 7); // maxResult is 7
+int[] numbers = {1, 2, 3, 4, 5};
+int sumResult = mathDemo.sum(numbers); // sumResult is 15
+float meanResult = mathDemo.mean(numbers); // meanResult is 3.0
+int factorialResult = mathDemo.factorial(5); // factorialResult is 120
+```
+- Importance Of _Static Methods_ in this code:
+
+1) No need for instantiation: Static methods can be called directly on the class without creating an instance. This is useful when you want to use these utility methods without the overhead of creating an object.
+
+2) Class-level association: Since these methods are related to mathematical operations and don't depend on specific instances of the class, it makes sense to define them as static. This emphasizes that these methods are associated with the class itself, rather than any particular instance.
+
+3) Conciseness: Using static methods makes the code more concise. You don't need to create an object to use these methods. You can call them directly on the class, which can lead to much more cleaner and readable code.
+
+## Inheritance (Task 8)
+### __Explanation__:
+- This code defines a simple inheritance hierarchy for Person, Teacher, Student, and PhdStudent classes. It also includes a main class named "Inheritance" to test the functionality of these classes.
+
+###Person Class:
+- Represents a basic person with attributes such as firstName, lastName, and gender.
+- Provides getters, setters, and a toString method for object representation.
+- Implements an 'equals' method for comparing two Person objects.
+
+### Teacher Class (extends Person):
+- Extends the Person class and adds attributes for department and courses.
+- Provides getters, setters, and a toString method for object representation.
+- Overrides the 'equals' method to compare Teacher objects.
+
+### Student Class (extends Person):
+- Represents a student with an additional attribute for studentId.
+- Provides getters, setters, and a toString method for object representation.
+- Overrides the 'equals' method to compare Student objects.
+- PhdStudent Class (extends Student):
+- Extends the Student class and adds attributes for department and courses.
+- Provides getters, setters, and a toString method for object representation.
+- Overrides the 'equals' method to compare PhdStudent objects.
+
+### Inheritance Class (Main):
+- Contains the main method for testing the classes by taking user input.
+- Includes methods to create and display instances of Person, Teacher, Student, and PhdStudent.
+
+### `Testing Methods`:
+```
+testPerson: Takes user input to create and display a Person object.
+testTeacher: Takes user input to create and display a Teacher object.
+testStudent: Takes user input to create and display a Student object.
+testPhdStudent: Takes user input to create and display a PhdStudent object.
+```
+### Usage:
+- Compile the Inheritance.java file.
+- Execute the generated class file.
+- Follow the prompts to input details for Person, Teacher, Student, and PhdStudent.
+- The program will create instances and display their details.
+
+
+## Task 9 
+### __Explanation:__
+ - This code defines two classes: Customer and Account, which represent a customer and their associated bank account.
+
+### Customer Class:
+- Represents a customer with attributes for ID, name, and gender.
+- Provides a constructor to initialize these attributes.
+- Includes getters for ID, name, and gender.
+- Overrides the toString method to return a formatted string with the customer's name and ID.
+
+### Account Class (extends Customer):
+- Extends the Customer class, implying an "is-a" relationship, but it contains a design issue regarding composition.
+- Represents a bank account with additional attributes such as ID, customer (of type Customer), and balance.
+- Provides constructors to initialize the account's attributes.
+- Includes getters and setters for ID, balance, and a method to get the customer's name.
+- Overrides the toString method to display information about the account.
+- Provides methods for withdrawing and depositing money.
+
+### Usage:
+- Compile the AccountTest.java file.
+- Execute the generated class file.
+- The program will run tests on account creation, withdrawal, and deposit methods, displaying the results for each test case.
+
+
+
+
+
+
+
+
+
 
 
 
