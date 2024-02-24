@@ -33,7 +33,7 @@ class MathDemo{
 }
 
     /* Advantages of defining these methods as static:
-    
+
      - Static methods can be called on the class itself without creating an instance.
      - They are associated with the class rather than an instance, making the code more concise.
      - Static methods can be easily used in other classes without the need for instantiation. */
