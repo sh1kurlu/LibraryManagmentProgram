@@ -1316,42 +1316,34 @@ public String toString() {
 
 - This is because the constructor of the superclass (X) is always called before the constructor of the subclass (Y) when an object of the subclass is created.
 
-## Task 2
-
+### Task 2
 ### `Class A`:
 - Defines a class A with a static initialization block and an instance initialization block.
 - The static initialization block `(static { System.out.println("In static init block of A"); })` is executed when the class is loaded, printing "In static init block of A."
-
 - The instance initialization block `({ System.out.println("In instance init block of A"); })` is executed before the constructor when an instance of the class is created, printing "In instance init block of A."
 - Has a default constructor `(public A() { System.out.println("In constructor A."); })` that prints "In constructor A."
-
 ### `Class B extends A`:
 - Defines a class B that extends class A with similar static and instance initialization blocks.
-- The static initialization block `(static { System.out.println("In static init block of B"); })` is executed when the class is loaded, printing `"In static init block of B."`
-
-- The instance initialization block `({ System.out.println("In instance init block of B"); })` is executed before the constructor when an instance of the class is created, printing `"In instance init block of B."`
-
-- Has a default constructor `(public B() { System.out.println("In constructor B."); })` that prints `"In constructor B."`
+- The static initialization block `(static { System.out.println("In static init block of B"); })` is executed when the class is loaded, printing "In static init block of B."
+- The instance initialization block `({ System.out.println("In instance init block of B"); })` is executed before the constructor when an instance of the class is created, printing "In instance init block of B."
+- Has a default constructor `(public B() { System.out.println("In constructor B."); })` that prints "In constructor B."
 
 ### `Main2 class`:
 - Contains the main method.
-- Creates an object of class B (B b = new B();).
-### When the program is executed, it prints the following output:
+- Creates an object of `class B (B b = new B();)`.
+- When the program is executed, it prints the corrected output:
 - The static initialization blocks are executed when the classes A and B are loaded. Therefore, the output includes the static init blocks of both classes.
 - The instance initialization blocks are executed before the constructors when objects of classes A and B are created.
 - The constructors are called after the instance initialization blocks.
 
-Therefore, the output of the given code will be:
+### Therefore, the corrected output of the given code will be:
 
 `In static init block of A`
+`In static init block of B`
 `In instance init block of A`
 `In constructor A.`
-`In static init block of B`
 `In instance init block of B`
 `In constructor B.`
-
-- This is because static blocks are executed when the class is loaded and instance blocks are executed when an instance of the class is created. 
-- The order of execution is static blocks first (in the order they appear in the class hierarchy) followed by instance blocks and ,finally, the constructor.
 
 
 ## Task 3
@@ -1380,8 +1372,178 @@ Therefore, the output of the given code will be:
 `10`
 `Subclass`
 `30`
-- This is because method overriding allows the subclass to provide a specific implementation for a method already defined in its superclass. 
-- The method to be executed is determined at runtime based on the actual type of the object.
+
+
+## Task 4
+### `Class A`:
+- Defines a class A with a static initialization block, an instance initialization block, and two constructors.
+- The static initialization block `(static { System.out.println("AS"); })` is executed when the class is loaded, printing "AS."
+- The instance initialization block `({ System.out.println("A"); })` is executed before any constructor when an instance of the class is created, printing "A."
+- Has a default constructor `(public A() { System.out.println("AC"); })` that prints "AC."
+- Has another constructor with an int parameter `(public A(int x) { System.out.println(x + " AC"); })` that prints the value of x followed by " AC."
+
+### `GeneralType class extends A`:
+- Defines a class GeneralType that extends class A with a static initialization block, an instance initialization block, and a constructor.
+- The static initialization block `(static { System.out.println("GTS"); })` is executed when the class is loaded, printing "GTS."
+- The instance initialization block `({ System.out.println("GT"); })` is executed before the constructor when an instance of the class is created, printing "GT."
+- Has a constructor `(public GeneralType() {super(5);System.out.println("GTC");})` that calls the parameterized constructor of its superclass (A) with the value 5 and prints "GTC" after that.
+
+### When the program is executed, it prints the following output:
+- The output is a result of the static and instance initialization blocks as well as the constructors being executed in the order of class hierarchy when objects are created.
+- The static blocks are executed when the classes A and GeneralType are loaded. Therefore, the output includes the static init blocks of both classes.
+- The instance blocks are executed before the constructors when objects of classes A and GeneralType are created.
+- The constructors are called after the instance blocks.
+
+### Therefore, the output of the given code will be:
+
+`AS`
+`A`
+`AC`
+`GTS`
+`GT`
+`5 AC`
+`GTC`
+
+## Task 5 
+
+### 1. Single Inheritance:
+- Definition: _Single inheritance occurs when a class inherits from only one superclass._
+- Example:
+
+`class Animal {`
+   ` void eat() {`
+        `System.out.println("Eating...");`
+ `   }`
+`}`
+
+`class Dog extends Animal {`
+ `   void bark() {`
+  `      System.out.println("Barking...");`
+  ` }`
+`}`
+
+### 2. Multilevel Inheritance:
+- Definition: _Multilevel inheritance occurs when a class is derived from a class, and then another class is derived from that derived class._
+- Example:
+
+`class A {`
+    `void display() {`
+     `   System.out.println("Class A");`
+ `   }`
+`}`
+
+`class B extends A {`
+    `void show() {`
+    `    System.out.println("Class B");`
+    `}`
+`}`
+
+`class C extends B {`
+   ` void print() {`
+       ` System.out.println("Class C");`
+  ` }`
+`}`
+
+### 3. Hierarchical Inheritance:
+- Definition: _Hierarchical inheritance occurs when multiple classes inherit from a single superclass._
+- Example:
+
+`class Shape {`
+   ` void draw() {`
+  `      System.out.println("Drawing...");`
+`    }`
+`}`
+
+`class Circle extends Shape {`
+   ` void drawCircle() {`
+   `     System.out.println("Drawing Circle...");`
+`    }`
+`}`
+
+`class Square extends Shape {`
+   ` void drawSquare() {`
+      `  System.out.println("Drawing Square...");`
+  `  }`
+`}`
+
+### 4. Multiple Inheritance:
+- Definition: _Multiple inheritance occurs when a class inherits from more than one superclass._
+- __(Note: Java does not support multiple inheritance for classes, but it can be achieved using 'interfaces')__
+
+- Example: 
+
+
+`interface A {`
+  `  void methodA();`
+`}`
+
+`interface B {`
+    `void methodB();`
+}`
+
+`class C implements A, B {`
+  `  public void methodA() {`
+     `   System.out.println("Method A");`
+  `  }`
+
+  `  public void methodB() {`
+  `      System.out.println("Method B");`
+  `  }`
+`}`
+
+### 5. Hybrid Inheritance:
+- Definition: _Hybrid inheritance is a combination of two or more types of inheritance (mix of others such as single, multiple, multilevel, etc.) in a single program._
+Example: __(Combining single and multiple inheritance using classes and interfaces)__
+
+`class D {`
+    `void display() {`
+       ` System.out.println("Class D");`
+    `}`
+`}`
+
+`interface E {`
+ `   void show();`
+`}`
+
+`class F extends D implements E {`
+   ` public void show() {`
+      `  System.out.println("Interface E");`
+   ` }`
+`}`
+
+__As it can been seen from the examples, Java supports single and multilevel inheritance through 'classes' and 'interface-based' multiple inheritance.__
+
+## Task 6 
+
+### Method methodOne(int i) in ClassB:
+- Action: This method is marked as 'static' in ClassB.
+- Explanation: In Java, static methods cannot be overridden but can be hidden. So, 'methodOne' in ClassB is hiding the 'methodOne' in ClassA since both are static methods with the same signature.
+### Method methodTwo(int i) in ClassB:
+- Action: This method is 'not' marked as static.
+- Explanation: This method in ClassB is overriding the 'methodTwo' in ClassA because it has the same method signature (same name and parameter types) and is not marked as static.
+### Method methodThree(int i) in ClassB:
+- Action: This method is 'not' marked as static.
+- Explanation: This method in ClassB is not overriding or hiding the 'methodThree' in ClassA because it is marked as static. In ClassA, 'methodThree' is a static method, and static methods cannot be overridden.
+### Method methodFour(int i) in ClassB:
+- Action: This method is marked as 'static'.
+- Explanation: Similar to 'methodOne', this method in ClassB is hiding the 'methodFour' in ClassA because both are static methods with the same signature.
+---
+- So to _summarize_, ClassB is hiding the static methods 'methodOne' and 'methodFour' from ClassA and it is overriding the instance method 'methodTwo' from ClassA. 
+- 'methodThree' in ClassB is not overriding or hiding anything because it's a static method and static methods __cannot be overridden__ in Java.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

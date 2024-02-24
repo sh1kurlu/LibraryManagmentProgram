@@ -1,5 +1,6 @@
 package week05;
 
-public class Task7 {
+public class Task7{
     
-}
+    }
+
