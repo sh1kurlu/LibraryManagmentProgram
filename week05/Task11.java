@@ -5,7 +5,7 @@ class Rectangle {
         width = w;
         height = h;
     }
-    
+
     @Override
     public boolean equals(Object obj){
         Rectangle rect = (Rectangle) obj;
