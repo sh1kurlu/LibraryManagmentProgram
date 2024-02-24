@@ -1,10 +1,10 @@
 package week05;
-class Customer {
+class Task9 {
     private int ID;
     private String name;
     private char gender;
 
-    public Customer(int ID, String name, char gender) {
+    public Task9(int ID, String name, char gender) {
         this.ID = ID;
         this.name = name;
         this.gender = gender;
@@ -28,9 +28,9 @@ class Customer {
     }
 }
 
-class Account extends Customer{
+class Account extends Task9{
     private int id;
-    private Customer customer;
+    private Task9 customer;
     private double balance;
 
     public Account(int id, int customerID, String name, char gender, double balance) {

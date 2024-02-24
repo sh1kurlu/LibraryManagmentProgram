@@ -1,6 +1,6 @@
 package week05;
 
-class MathDemo{
+class Task7{
     public int min(int a, int b){
         int min = (a < b)? a : b;
         return min;
