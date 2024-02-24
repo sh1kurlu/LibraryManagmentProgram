@@ -1,5 +1,6 @@
 package week05;
 import java.util.Arrays;
+import java.util.Scanner;
 
     class Person{
         private String firstName;
@@ -116,77 +117,120 @@ import java.util.Arrays;
     
     class PhdStudent extends Student {
         private String department;
-        private String courses;
+        private String[] courses;
     
-        public PhdStudent(String firstName, String lastName, String gender, int studentId, String department, String courses) {
+        public PhdStudent(String firstName, String lastName, String gender, int studentId, String department, String[] courses) {
             super(firstName, lastName, gender, studentId);
             this.department = department;
             this.courses = courses;
         }
-        
+    
         @Override
         public String toString() {
             return "PhdStudent{" +
                     "department='" + department + '\'' +
-                    ", courses='" + courses + '\'' +
+                    ", courses=" + Arrays.toString(courses) +
                     "} " + super.toString();
         }
     
         public boolean equals(PhdStudent pStud) {
             return super.equals(pStud) &&
                     this.department.equals(pStud.department) &&
-                    this.courses.equals(pStud.courses);
+                    Arrays.equals(this.courses, pStud.courses);
         }
     }
+    
 
     
 
 public class Inheritance {
-    public static void main(String[] args) {
-        testPerson();
-        testTeacher();
-        testStudent();
-        testPhdStudent();
-    }
-
-    private static void testPerson() {
-        Person person1 = new Person("John", "Doe", "Male");
-        Person person2 = new Person("Jane", "Doe", "Female");
-
-        System.out.println(person1);
-        System.out.println(person2);
-
-    }
-
-    private static void testTeacher() {
-        String[] courses = {"Math", "Physics"};
-        Teacher teacher1 = new Teacher("Science", courses, "Alice", "Smith", "Female");
-        Teacher teacher2 = new Teacher("English", courses, "Bob", "Johnson", "Male");
-
-        System.out.println(teacher1);
-        System.out.println(teacher2);
-
-    }
-
-    private static void testStudent() {
-        Student student1 = new Student("Eva", "Green", "Female", 12345);
-        Student student2 = new Student("Tom", "Brown", "Male", 67890);
-
-        System.out.println(student1);
-        System.out.println(student2);
-
+    
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+    
+            testPerson(scanner);
+            testTeacher(scanner);
+            testStudent(scanner);
+            testPhdStudent(scanner);
+    
+            scanner.close();
+        }
+    
+        private static void testPerson(Scanner scanner) {
+            System.out.println("Enter details for Person:");
+            System.out.print("Enter first name: ");
+            String firstName = scanner.next();
+            System.out.print("Enter last name: ");
+            String lastName = scanner.next();
+            System.out.print("Enter gender: ");
+            String gender = scanner.next();
+    
+            Person person = new Person(firstName, lastName, gender);
+            System.out.println("Created Person: " + person);
+        }
+    
+        private static void testTeacher(Scanner scanner) {
+            System.out.println("Enter details for Teacher:");
+            System.out.print("Enter department: ");
+            String department = scanner.next();
+            System.out.print("Enter number of courses: ");
+            int numCourses = scanner.nextInt();
+            String[] courses = new String[numCourses];
+            System.out.println("Enter course names (separated by spaces):");
+            for (int i = 0; i < numCourses; i++) {
+                courses[i] = scanner.next();
+            }
+            System.out.print("Enter first name: ");
+            String firstName = scanner.next();
+            System.out.print("Enter last name: ");
+            String lastName = scanner.next();
+            System.out.print("Enter gender: ");
+            String gender = scanner.next();
+    
+            Teacher teacher = new Teacher(department, courses, firstName, lastName, gender);
+            System.out.println("Created Teacher: " + teacher);
+        }
+    
+        private static void testStudent(Scanner scanner) {
+            System.out.println("Enter details for Student:");
+            System.out.print("Enter first name: ");
+            String firstName = scanner.next();
+            System.out.print("Enter last name: ");
+            String lastName = scanner.next();
+            System.out.print("Enter gender: ");
+            String gender = scanner.next();
+            System.out.print("Enter student ID: ");
+            int studentId = scanner.nextInt();
+    
+            Student student = new Student(firstName, lastName, gender, studentId);
+            System.out.println("Created Student: " + student);
+        }
+    
+        private static void testPhdStudent(Scanner scanner) {
+            System.out.println("Enter details for PhdStudent:");
+            System.out.print("Enter department: ");
+            String department = scanner.next();
+            System.out.print("Enter number of courses: ");
+            int numCourses = scanner.nextInt();
+            String[] courses = new String[numCourses];
+            System.out.println("Enter course names (separated by spaces):");
+            for (int i = 0; i < numCourses; i++) {
+                courses[i] = scanner.next();
+            }
+            System.out.print("Enter first name: ");
+            String firstName = scanner.next();
+            System.out.print("Enter last name: ");
+            String lastName = scanner.next();
+            System.out.print("Enter gender: ");
+            String gender = scanner.next();
+            System.out.print("Enter student ID: ");
+            int studentId = scanner.nextInt();
+        
+            PhdStudent phdStudent = new PhdStudent(firstName, lastName, gender, studentId, department, courses);
+            System.out.println("Created PhdStudent: " + phdStudent);
+        }
         
     }
-
-    private static void testPhdStudent() {
-        PhdStudent phdStudent1 = new PhdStudent("Sam", "White", "Male", 54321, "Computer Science", "Algorithms");
-        PhdStudent phdStudent2 = new PhdStudent("Lisa", "Jones", "Female", 98765, "Physics", "Quantum Mechanics");
-
-        System.out.println(phdStudent1);
-        System.out.println(phdStudent2);
-
-        
-    }
-}
+    
 
     
