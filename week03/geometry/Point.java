@@ -44,15 +44,19 @@ public class Point {
         return (float)distance;
     }
 
-    public boolean equals(Point p){
-        return this.x == p.getX() && this.y == p.getY();
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Point otherPoint = (Point) obj;
+        return this.x == otherPoint.getX() && this.y == otherPoint.getY();
     }
 
-
+    @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("(").append(x).append(", ").append(y).append(")");
-        return sb.toString();
+        return "(" + x + ", " + y + ")";
     }
 
 }

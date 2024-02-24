@@ -30,9 +30,7 @@ public class Segment {
     public float length() {
         return p1.distance(p2);
     }
-    public boolean equals(Segment s){
-        return this.p1.equals(s.getp1()) && this.p2.equals(s.getp2());
-    }
+    
     public float getSlope(){
         return (p2.getY() - p1.getY()) / (p2.getX() - p1.getX());
     }
@@ -54,12 +52,19 @@ public class Segment {
         return p.getX() >= minX && p.getX() <= maxX && p.getY() >= minY && p.getY() <= maxY;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Segment otherSegment = (Segment) obj;
+        return this.p1.equals(otherSegment.getp1()) && this.p2.equals(otherSegment.getp2());
+    }
+
+    @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[").append(p1.toString()).append(", ").append(p2.toString()).append("]");
-        return sb.toString();
+        return "[" + p1.toString() + ", " + p2.toString() + "]";
     }
     
 
-    
 }
