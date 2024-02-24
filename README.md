@@ -1660,8 +1660,92 @@ testPhdStudent: Takes user input to create and display a PhdStudent object.
 - Execute the generated class file.
 - The program will run tests on account creation, withdrawal, and deposit methods, displaying the results for each test case.
 
+## Task 11
+### __Explanation__:
+- The provided Java code defines a Rectangle class and a Task11 class to demonstrate the usage of the equals method for comparing instances of the Rectangle class.
 
+### Rectangle Class:
+- Represents a rectangle with attributes width and height.
+- Provides a constructor to initialize the width and height.
+- Overrides the equals method from the Object class to compare two Rectangle objects based on their width and height.
+- The method first checks if the provided object is an instance of Rectangle.
+- It then casts the object to a Rectangle and compares the width and height of both rectangles.
+- Returns 'true' if the widths and heights are equal; otherwise, returns 'false'.
 
+### Task11 Class:
+- Contains the main method to demonstrate the use of the Rectangle class.
+- Creates three instances of the Rectangle class: r1, r2, and r3.
+- Calls the equals method on pairs of rectangles and prints the results.
+
+### __Output__:
+- The program prints the results of comparing pairs of rectangles using the equals method.
+
+```java
+r1.equals(r2): Prints false since the widths (5 and 15) are different.
+r1.equals(r3): Prints true since the widths (5) and heights (10) are the same.
+r2.equals(r3): Prints false since the widths (15 and 5) are different.
+```
+- The output illustrates how the overridden equals method in the Rectangle class compares rectangles based on their width and height.
+
+## Task 12
+###  __Explanation__:
+- The provided Java code defines a Square class that extends the Rectangle class and a Task12 class to demonstrate the usage of the equals method with instances of the Rectangle, Square and Object classes.
+
+### Square Class (extends Rectangle):
+- Represents a square, which is a specific type of rectangle where all sides are of equal length.
+- Extends the Rectangle class, inheriting its attributes and behaviors.
+- Provides a constructor to initialize the side of the square.
+    -  Calls the constructor of the superclass (Rectangle) using super(side, side) to set both width and height to the same value.
+   - Assigns the value of side to the instance variable this.side.
+- Overrides the equals method to correctly compare Square objects.
+  - Checks if the object being compared is the same reference (this == obj).
+  - Ensures the object is an instance of Square (obj instanceof Square).
+  - Casts the object to a Square.
+  - Compares the side values of both squares and returns true if they are equal; otherwise, returns false.
+
+### Task12 Class:
+- Contains the main method to demonstrate the use of the equals method with instances of the Rectangle, Square, and Object classes.
+- Creates three instances: o1, o2, and o3, of types Object, representing rectangles and a square.
+- Calls the equals method on pairs of objects and prints the results.
+
+### _Output_:
+- The program prints the results of comparing pairs of objects using the equals method.
+
+```java
+o1.equals(o2): Prints false since the rectangles have different widths and heights.
+o1.equals(o3): Prints false since the Rectangle and Square have different types.
+o2.equals(o3): Prints true since the squares have the same side length.
+```
+
+## Task 12
+### __Explanation__:
+- This code defines a Square class that extends the Rectangle class and a Task12 class to demonstrate the usage of the equals method with instances of the Rectangle, Square and Object classes.
+
+### Square Class (extends Rectangle):
+- Represents a square, which is a specific type of rectangle where all sides are of equal length.
+- Extends the Rectangle class, inheriting its attributes and behaviors.
+- Provides a constructor to initialize the side of the square.
+  - Calls the constructor of the superclass (Rectangle) using super(side, side) to set both width and height to the same value.
+  - Assigns the value of side to the instance variable this.side.
+  - Overrides the equals method to correctly compare Square objects.
+  - Checks if the object being compared is the same reference (this == obj).
+  - Ensures the object is an instance of Square (obj instanceof Square).
+  - Casts the object to a Square.
+  - Compares the side values of both squares and returns 'true' if they are equal; otherwise, returns 'false'.
+  
+### Task12 Class:
+- Contains the main method to demonstrate the use of the equals method with instances of the Rectangle, Square, and Object classes.
+- Creates three instances: o1, o2, and o3, of types Object, representing rectangles and a square.
+- Calls the equals method on pairs of objects and prints the results.
+
+### __Output__:
+- The program prints the results of comparing pairs of objects using the equals method.
+
+```java
+o1.equals(o2): Prints false since the rectangles have different widths and heights.
+o1.equals(o3): Prints false since the Rectangle and Square have different types.
+o2.equals(o3): Prints true since the squares have the same side length.
+```
 
 
 
