@@ -1,9 +1,5 @@
 package week06;
 
-interface Resizeable {
-     void resize(double percent);
-}
-
 public abstract class Shape {
     protected String color = "red";
     protected boolean filled = true;

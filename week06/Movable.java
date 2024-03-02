@@ -1,5 +1,6 @@
 package week06;
 import week03.geometry.*;
+import week05.*;
 
 public interface Movable {
     void moveUp();
