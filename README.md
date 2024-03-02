@@ -32,6 +32,11 @@
 - Changed the clone method of Point class.
 - Commit _SHA_ value is `0de99d4c6775e780b8ab60ed9aa83505da354615`
 
+## week03
+### Mar 2
+- Added movable interface and implemented it in point and segment classes
+- Commit _SHA_ value is `7398926cf4ec664f24748b50f3c6d70312d9a5ba`
+
 ## Week02 Folder
 
 ### NOTE: You have to install *JDK* to run these codes in your IDE!
