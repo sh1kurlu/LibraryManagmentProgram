@@ -14,8 +14,23 @@
 
 ## week05
 ### Mar 2
-- Added clone method with '@Override' to 'Rectangle.java'.
+- Added clone method with '@Override' to 'Task11.java'.
 - Commit _SHA_ value is `7c950cc8e911c8addb489e7784af9a1bcb627cb7`
+
+## week05
+### Mar 2
+- Updated the equals method in 'Task11.java'.
+- Commit _SHA_ value is `763fd33b726f5e521264a88d15d280ceef1fc617`
+
+## week03
+### Mar 2
+- Added clone mehtod with Override in both Segment and Point classes
+- Commit _SHA_ value is `9cb3ea028f5cbea0533f71d30fbf2e96eee1b29c`
+
+## week03
+### Mar 2
+- Changed the clone method of Point class.
+- Commit _SHA_ value is `0de99d4c6775e780b8ab60ed9aa83505da354615`
 
 ## Week02 Folder
 
@@ -1751,6 +1766,77 @@ o1.equals(o2): Prints false since the rectangles have different widths and heigh
 o1.equals(o3): Prints false since the Rectangle and Square have different types.
 o2.equals(o3): Prints true since the squares have the same side length.
 ```
+
+---
+# Week 06
+## Task 4
+### A) Why is `clone()` method protected in Object class?
+
+The `clone()` method in the `Object` class is declared with `protected` visibility to control its access. This decision ensures that the cloning process is managed carefully and only accessible within the class or its subclasses. The `protected` visibility allows access within the same package and subclasses, enabling a controlled cloning behavior.
+
+## B) Benefits of keeping `clone()` protected in extending class:
+
+1. **Controlled Access:**
+   By keeping the `clone()` method protected, access is restricted to the current class and its subclasses. This ensures controlled cloning and allows customization within the class hierarchy.
+
+2. **Customization:**
+   Extending classes can override the `clone()` method to provide a custom cloning implementation. This flexibility allows adapting the cloning process to specific class requirements, handling additional fields or special cases.
+
+3. **Encapsulation:**
+   Protecting the `clone()` method helps maintain encapsulation, as cloning logic is contained within the class or its subclasses, preventing external classes from direct manipulation.
+
+### When to use `public` instead of `protected`:
+
+1. **Widest Accessibility:**
+   If the `clone()` method needs to be accessible from any class, including those outside the package and unrelated to the class hierarchy, consider making it public. Exercise caution to avoid unintended usage.
+
+2. **Immutable Classes:**
+   In some cases, immutable classes might benefit from a public `clone()` method, allowing clients to create copies without violating immutability. Ensure immutability guarantees are maintained.
+
+## Task 5
+### A) __Deep__ or __Shallow__ Cloning?
+The implemented `clone()` method in both `Point` and `Segment` classes provides __deep cloning__ - it creates a completely separate copy of an object.
+
+ 
+### B) Trying the Other Approach
+The cloning operation can also be performed with __Shallow__ type:
+__Note__: A shallow clone shares the same references with the original.
+
+**Shallow cloning in Point class**:
+```java 
+@Override
+public Point clone() {
+    try {
+        return (Point) super.clone();
+    } catch (CloneNotSupportedException e) {
+        throw new AssertionError();
+    }
+}
+```
+**Shallow cloning in Segment class**:
+```java
+@Override
+public Segment clone() {
+    try {
+        return (Segment) super.clone();
+    } catch (CloneNotSupportedException e) {
+        throw new AssertionError();
+    }
+}
+```
+### Applications
+
+*Deep Clone*: Employ when you require an entirely autonomous duplicate, meaning alterations to the copied instance will have no impact on the original.
+
+*Shallow Clone*: Use when copying quickly is important and changes to the copy may reflect in the original.
+
+- The code's `clone()` method makes a deep copy, ensuring the cloned objects are entirely separate from the originals. 
+- Shallow cloning, which is mainly chosen for speed, has the downside of shared references between the original and cloned objects, impacting independence.
+
+
+
+
+
 
 
 
