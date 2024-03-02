@@ -2012,6 +2012,50 @@ bg.power(5,10);
 ```
 
 
+## Task 9
+### BigDecimal1
+This is a program that performs subtraction and addition operations using `BigDecimal`.
+__Note__: Just like BigInteger helps handle massive integers in Java, BigDecimal would be the most suitable option when dealing with _precise decimal_ arithmetic operations.
+
+### __How it Works__
+
+#### Operation A: Subtraction
+```java
+BigDecimal result_A = new BigDecimal("2.35").subtract(new BigDecimal("1.95"));
+System.out.println("Result of a: " + result_A);
+```
+
+- In the code snippet above, the `subtract()` method of `BigDecimal` is used to subtract 1.95 from 2.35.
+
+#### Operation B: Addition and Subtraction
+```java
+BigDecimal result_B = new BigDecimal("1000000.0").add(new BigDecimal("1.2"))
+                .subtract(new BigDecimal("1000000.0"));
+System.out.println("Result of b: " + result_B);
+```
+
+- In the code snippet above, the `add()` method is first used to add 1.2 to 1000000.0. Then, the `subtract()` method is used to subtract 1000000.0 from the result, leaving the sum of the first operation. 
+
+### Test Run
+
+This program can be run using the `main()` method:
+```java
+public static void main(String[] args) {
+    BigDecimal result_A = new BigDecimal("2.35").subtract(new BigDecimal("1.95"));
+    System.out.println("Result of a: " + result_A);
+
+
+BigDecimal result_B = new BigDecimal("1000000.0").add(new BigDecimal("1.2"))
+                 .subtract(new BigDecimal("1000000.0"));
+
+System.out.println("Result of b: " + result_B);
+
+}
+```
+
+- In the `main()` method, the addition and subtraction of BigDecimal are tested with given 'sample inputs'.
+
+
 
 
 
