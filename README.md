@@ -42,6 +42,11 @@
 - Updated certain files and implemented resizeable in week05
 - Commit _SHA_ value are `ae397f3fb0a69e3105006dd0aa817a94d98f45a4` and `c7173aca4db239bd5e14523dcaf1c0de7a5ee72d`
 
+## week05
+### Mar 2
+- Shifted the 'resizable' interface to week05 + made some changes to other classes.
+- Commit _SHA_ value is `d7711c3cbbbf443ffde16c76a74a116f81b82c4e` 
+
 
 ## Week02 Folder
 
