@@ -1,8 +1,12 @@
 package week03.geometry;
+import week06.Movable;
 
-public class Point {
+
+public class Point implements Movable{
     private float x,y;
-     
+    
+
+
     public Point(){
       
     }
@@ -70,6 +74,31 @@ public class Point {
         throw new AssertionError();
     }
 }
+
+
+@Override
+public void moveUp() {
+    y++;
+}
+
+@Override
+public void moveDown() {
+    y--;
+}
+
+@Override
+public void moveLeft() {
+    x--;
+}
+
+@Override
+public void moveRight() {
+    x++;
+}
+    
+
+
+    
 }
 
     
