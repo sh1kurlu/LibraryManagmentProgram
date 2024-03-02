@@ -1,5 +1,5 @@
 package week05;
 
-public interface Resizeable {
-
+interface Resizeable {
+    void resize(double percent);
 }

@@ -1,7 +1,6 @@
 package week05;
 import week06.Shape;
 
-
 class Rectangle extends Shape implements Cloneable,Resizeable {
     double width = 1.0, length = 1.0;
 

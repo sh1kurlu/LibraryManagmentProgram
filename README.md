@@ -1924,6 +1924,30 @@ Segment from (0, 2) to (-1, 1)
 Circle at (-1, 2) with radius 5.0
 ```
 
+## Task 7
+### UML Diagram and Class Descriptions
+
+## 1. Interface Resizable
+An interface that has an abstract method `resize()` to enhance an object by given percent.
+
+## 2. Class Shape
+An abstract class that represents a generic shape. The class describes the general characteristics of a shape.
+
+## 3. Class Circle
+The `Circle` class extends `Shape` and implements `Resizable`. It represents a circle with a certain `radius`. Complete properties and behaviors of a circle are encapsulated in this class. The `resize()` method is overridden to increase the `radius` according to the provided percentage.
+
+## 4. Class Rectangle
+The class `Rectangle` extends `Shape` and implements `Resizable`. A rectangle has a `width` and a `length`. The `resize()` method is overridden to increase both the `length` and `width` by a certain percentage.
+
+## 5. Class Square
+The `Square` class extends `Rectangle` as a square is a specific type of rectangle where all sides are equal. Because the `Square` class inherits from `Rectangle`, which already implements `Resizable`, the `Square` class is also `Resizable`. The `resize` method in `Rectangle` is appropriate for `Square` because resizing square involves increasing its sides evenly, similar to Rectangle.
+
+## C) Can we make Circle, Rectangle and Square classes resizable?
+
+Yes, we can make `Circle`, `Rectangle`, and `Square` classes resizable. In fact, based on the current class design, they all are resizable. The `Circle` and `Rectangle` classes directly implement the `Resizable` interface, and the `Square` class indirectly implements it through inheritance. When the `resize()` method is called on an object of these classes, their size will increase by the given percent.
+
+
+
 
 
 
