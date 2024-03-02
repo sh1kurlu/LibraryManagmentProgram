@@ -1,6 +1,10 @@
 package week06;
 
-abstract class Shape {
+interface Resizeable {
+     void resize(double percent);
+}
+
+public abstract class Shape {
     protected String color = "red";
     protected boolean filled = true;
 
@@ -31,7 +35,7 @@ abstract class Shape {
 
     @Override
     public String toString() {
-        return String.format("Shape[Color=%s, Filled=%b]", color, filled);
+        return "Shape[color=" + color + ", filled=" + filled + "]";
     }
 }
 

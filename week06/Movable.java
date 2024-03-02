@@ -8,7 +8,7 @@ public interface Movable {
     void moveRight();
 }
 
-class Circle extends Shape implements Movable {
+class Circle extends Shape implements Movable, Resizeable {
     private Point center;
     private double radius = 1.0;
 
@@ -60,5 +60,10 @@ class Circle extends Shape implements Movable {
     @Override
     public String toString() {
         return "Circle[Shape[color=" + color + ",filled=" +filled+ "],radius=" + radius + "]";
+    }
+
+    @Override
+    public void resize(double percent) {
+        radius += radius * percent / 100;
     }
 }

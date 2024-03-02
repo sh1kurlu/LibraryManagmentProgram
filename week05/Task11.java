@@ -1,26 +1,52 @@
 package week05;
+import week06.Shape;
 
-class Rectangle implements Cloneable {
-    int width, height;
-    
-    public Rectangle(int w, int h){
-        width = w;
-        height = h;
+
+class Rectangle extends Shape implements Cloneable,Resizeable {
+    double width = 1.0, length = 1.0;
+
+    public Rectangle() {}
+
+    public Rectangle(double width, double length) {
+        super();
+        this.width = width;
+        this.length = length;
+    }
+
+    public Rectangle(double width, double length, String color, boolean filled) {
+        super(color,filled);
+        this.width = width;
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLenght() {
+        return length;
+    }
+
+    public void setLenght(double lenght) {
+        this.length = lenght;
+    }
+
+    public double getArea() {
+        return width * length;
+    }
+
+    public double getPerimeter() {
+        return 2 * (width + length);
     }
 
     @Override
-    public boolean equals(Object obj) {
-      if (this == obj) {
-        return true;
+    public String toString() {
+        return "Rectangle [color=" + color + ", filled=" + filled + ", width=" + width + ", length=" + length + "]";
     }
-      if (obj == null || getClass() != obj.getClass()) {
-        return false;
-    }
-
-    Rectangle rect = (Rectangle) obj;
-    return rect.width == width && rect.height == height;
-}
-
 
     @Override
     protected Rectangle clone() {
@@ -29,6 +55,12 @@ class Rectangle implements Cloneable {
         } catch (CloneNotSupportedException e) {
             throw new Error("Error!");
         }
+    }
+    
+    
+    public void resize(double percent) {
+        width += width * percent / 100;
+        length += length * percent / 100;
     }
 }
 
