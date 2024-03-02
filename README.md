@@ -1838,7 +1838,91 @@ public Segment clone() {
 - The code's `clone()` method makes a deep copy, ensuring the cloned objects are entirely separate from the originals. 
 - Shallow cloning, which is mainly chosen for speed, has the downside of shared references between the original and cloned objects, impacting independence.
 
+## Task 6
+## Movable Interface and Implementation
 
+### Movable Interface
+Define an interface `Movable` with four methods:
+- `moveUp`
+- `moveDown`
+- `moveLeft`
+- `moveRight`
+
+```java
+public interface Movable {
+    void moveUp();
+    void moveDown();
+    void moveLeft();
+    void moveRight();
+}
+```
+
+### Point and Segment Implementation
+Take the Point class and implement the Movable interface so that any object of the point can be moved in all four directions on a 2D coordinate system. 
+_Apply the same to the Segment class._
+
+
+```java
+class Circle implements Movable {
+    // Other codes...
+    
+    @Override
+    public void moveUp() {
+        center.moveUp();
+    }
+
+    @Override
+    public void moveDown() {
+        center.moveDown();
+    }
+
+    @Override
+    public void moveLeft() {
+        center.moveLeft();
+    }
+
+    @Override
+    public void moveRight() {
+        center.moveRight();
+    }
+}
+```
+
+### __Testing and Main Class__
+Define a Circle class which is represented by the center point and a radius. Make Circle implement Movable. Test the added behavior by creating an array consisting of a mixture of Points, Segments and Circles in a Main class.
+
+```java
+public class MovableTest {
+    public static void main(String[] args) {
+        Point point = new Point(1, 1);
+        Segment segment = new Segment(new Point(2, 2), new Point(3, 3));
+        Circle circle = new Circle(new Point(4, 4), 5);
+        
+        Movable[] objects = {point, segment, circle};
+        
+        moveObjects(objects, 2, 2); 
+        
+        for (Movable object : objects) {
+            System.out.println(object);
+        }
+    }
+    
+    public static void moveObjects(Movable[] objects, float deltaX, float deltaY) {
+        for (Movable object : objects) {
+            object.moveUp();
+            object.moveLeft();
+        }
+    }
+}
+```
+- In the Main class, a test scenario is created with a Point, Segment, and Circle. The moveObjects method is called to move all objects up and left. The final positions of the objects are printed for verification.
+
+```java
+Output:
+Point at (0, 1)
+Segment from (0, 2) to (-1, 1)
+Circle at (-1, 2) with radius 5.0
+```
 
 
 
