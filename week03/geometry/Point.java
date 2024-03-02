@@ -61,12 +61,15 @@ public class Point {
 
     @Override
     public Point clone() {
-        try {
-            return (Point) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError();
-        }
+    try {
+        Point cloned = (Point) super.clone();
+        cloned.x = this.x;
+        cloned.y = this.y;
+        return cloned;
+    } catch (CloneNotSupportedException e) {
+        throw new AssertionError();
     }
+}
 }
 
     
