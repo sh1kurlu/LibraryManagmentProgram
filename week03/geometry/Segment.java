@@ -65,6 +65,18 @@ public class Segment {
     public String toString() {
         return "[" + p1.toString() + ", " + p2.toString() + "]";
     }
+
+    @Override
+    public Segment clone() {
+        try {
+            Segment cloned = (Segment) super.clone();
+            cloned.p1 = p1.clone();
+            cloned.p2 = p2.clone();
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
     
 
 }

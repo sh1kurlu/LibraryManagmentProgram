@@ -59,5 +59,18 @@ public class Point {
         return "(" + x + ", " + y + ")";
     }
 
+    @Override
+    public Point clone() {
+        try {
+            return (Point) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }
+
+    
+    
+
+
 
