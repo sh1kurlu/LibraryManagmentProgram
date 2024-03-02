@@ -37,6 +37,12 @@
 - Added movable interface and implemented it in point and segment classes
 - Commit _SHA_ value is `7398926cf4ec664f24748b50f3c6d70312d9a5ba`
 
+## week05
+### Mar 2
+- Updated certain files and implemented resizeable in week05
+- Commit _SHA_ value are `ae397f3fb0a69e3105006dd0aa817a94d98f45a4` and `c7173aca4db239bd5e14523dcaf1c0de7a5ee72d`
+
+
 ## Week02 Folder
 
 ### NOTE: You have to install *JDK* to run these codes in your IDE!
