@@ -1957,6 +1957,59 @@ The `Square` class extends `Rectangle` as a square is a specific type of rectang
 
 Yes, we can make `Circle`, `Rectangle`, and `Square` classes resizable. In fact, based on the current class design, they all are resizable. The `Circle` and `Rectangle` classes directly implement the `Resizable` interface, and the `Square` class indirectly implements it through inheritance. When the `resize()` method is called on an object of these classes, their size will increase by the given percent.
 
+## Task 8
+### BigInteger1
+This is a program that calculates both the factorial of a number and the power of a number.
+__Note__: `BigInteger` class is beneficial when you're dealing with really __large__ integers that exceed the range of primitive data types like `int` or `long`.
+
+### __How it Works__
+
+#### Factorial Calculation
+
+Following is the code snippet to calculate Factorial of an integer:
+```java
+public void factorial(int n) {
+    BigInteger result = BigInteger.ONE;
+
+
+for (int i = 2; i <= n; i++) {
+    result = result.multiply(BigInteger.valueOf(i));
+}
+
+System.out.println("Factorial of " + n + " is: " + result);
+
+}
+```
+
+- In the method above, it loops from 2 to the given number, multiplying the `result` with each number. Here, `BigInteger.ONE` is used as the initial value of `result`. The `multiply()` method of `BigInteger` is used to multiply the numbers.
+
+#### Power Calculation
+
+Following is the code snippet to calculate power of a number:
+```java
+public void power(int base, int exponent){
+    BigInteger result = BigInteger.valueOf(base).pow(exponent);
+
+System.out.println(base + " raised to the power of " + exponent + " is: " + result);
+
+}
+```
+
+- In the method above, `BigInteger.valueOf(base).pow(exponent)` is used to calculate the power of a number. `pow()` method of `BigInteger` is used to raise the base to the power of the exponent.
+
+### Test Run
+
+This program can be run using the `main()` method:
+
+```java
+public static void main(String[] args) {
+    BigInteger1 bg = new BigInteger1();
+
+bg.factorial(10);
+bg.power(5,10);
+
+}
+```
 
 
 
