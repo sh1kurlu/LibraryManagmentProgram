@@ -8,9 +8,11 @@ public interface Movable {
     void moveRight();
 }
 
-class Circle implements Movable {
+class Circle extends Shape implements Movable {
     private Point center;
-    private float radius;
+    private double radius = 1.0;
+
+    public Circle(){}
 
     public Circle(Point center, float radius) {
         this.center = center;
@@ -21,7 +23,7 @@ class Circle implements Movable {
         return center;
     }
 
-    public float getRadius() {
+    public double getRadius() {
         return radius;
     }
 
@@ -44,5 +46,19 @@ class Circle implements Movable {
     public void moveRight() {
         center.moveRight();
     }
-}
 
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2 * Math.PI * radius;
+    }
+
+    @Override
+    public String toString() {
+        return "Circle[Shape[color=" + color + ",filled=" +filled+ "],radius=" + radius + "]";
+    }
+}
