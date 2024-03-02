@@ -9,15 +9,18 @@ class Rectangle implements Cloneable {
     }
 
     @Override
-    public boolean equals(Object obj){
-        Rectangle rect = (Rectangle) obj;
-        if(rect.width == width && rect.height == height) {       
-            return true;
-        }
-        else{
-            return false;
-        }
+    public boolean equals(Object obj) {
+      if (this == obj) {
+        return true;
     }
+      if (obj == null || getClass() != obj.getClass()) {
+        return false;
+    }
+
+    Rectangle rect = (Rectangle) obj;
+    return rect.width == width && rect.height == height;
+}
+
 
     @Override
     protected Rectangle clone() {
