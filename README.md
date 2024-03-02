@@ -12,6 +12,11 @@
 ### Feb 24
 - Changed and overrided 'toString()' and 'equals(Object obj)' methods of 'Point.java' and 'Circle.java'. The commit _hash_ value is `92def0aa99199acc95a0dd1e3ac920c3acec1799`
 
+## week05
+### Mar 2
+- Added clone method with '@Override' to 'Rectangle.java'.
+- Commit _SHA_ value is `7c950cc8e911c8addb489e7784af9a1bcb627cb7`
+
 ## Week02 Folder
 
 ### NOTE: You have to install *JDK* to run these codes in your IDE!
