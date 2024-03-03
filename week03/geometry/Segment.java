@@ -107,3 +107,5 @@ public class Segment implements Movable{
     
 
 }
+
+// Changed it for the second time
