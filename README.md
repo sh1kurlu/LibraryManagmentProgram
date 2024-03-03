@@ -47,6 +47,11 @@
 - Shifted the 'resizable' interface to week05 + made some changes to other classes.
 - Commit _SHA_ value is `d7711c3cbbbf443ffde16c76a74a116f81b82c4e` 
 
+## week05
+### Mar 3
+- Updated 'Point' and 'Segment' classes for week06 
+- Commit _SHA_ value is `9139bcf5ef66fc38c1937458cb9d87ca6c662e63`
+
 
 ## Week02 Folder
 
