@@ -34,11 +34,10 @@ public class Invoice {
     }
 
     public void setQuantity(int quantity){
-        if(quantity > 0){
+        if(quantity >= 0){
             this.quantity = quantity;
-          }
-          else{
-              this.quantity = 0;
+          } else {
+              throw new IllegalArgumentException("Quantity cannot be negative");
           }
     }
 
@@ -47,11 +46,10 @@ public class Invoice {
     }
 
     public void setPrice(double price){
-        if(price > 0.0){
+        if(price >= 0){
             this.price = price;
-        }
-        else{
-            this.price = 0.0;
+        } else {
+            throw new IllegalArgumentException("Price cannot be negative");
         }
     }
 

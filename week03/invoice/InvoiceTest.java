@@ -6,11 +6,17 @@ public class InvoiceTest {
         Scanner s = new Scanner(System.in);
         Invoice invoice = new Invoice(s.nextLine(),s.nextLine(),s.nextInt(), s.nextDouble());
 
+        try{
         System.out.println("Part Number: " + invoice.getPartNumber());
         System.out.println("Part Description: " + invoice.getPartDescription());
         System.out.println("Quantity: " + invoice.getQuantity());
         System.out.println("Price Per Item: " + invoice.getPrice());
         System.out.println("Invoice Amount: " + invoice.getInvoiceAmount());
+        }
+
+        catch (IllegalArgumentException ex){
+            System.out.println(ex.getMessage());
+        }
 
         s.close();
     }
