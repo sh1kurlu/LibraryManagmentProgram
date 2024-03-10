@@ -1,69 +1,56 @@
 package week03.invoice;
 
 public class Invoice {
-    private String partNumber, partDescription;
-    private int quantity;
-    private double price;
-
-    public Invoice(String partNumber, String partDescription, int quantity, double price){
-        setPartNumber(partNumber);
-        setPartDescription(partDescription);
-        setQuantity(quantity);
-        setPrice(price);
-        
+    private String partNumber;
+    private String description;
+    private int quantityOfItem;
+    private double pricePerItem;
+    public Invoice (String partNumber, String description, int quantityOfItem, double pricePerItem){
+        this.partNumber = partNumber;
+        this.description = description;
+        setQuantity(quantityOfItem);
+        setPriceItem(pricePerItem);
     }
-
     public String getPartNumber(){
         return partNumber;
     }
-
     public String getPartDescription(){
-        return partDescription;
+        return description;
     }
-
+    public int getQuantity(){
+        return quantityOfItem;
+    }
+    public double getPrice(){
+        return pricePerItem;
+    }
     public void setPartNumber(String partNumber){
         this.partNumber = partNumber;
     }
-
-    public void setPartDescription(String partDescription){
-        this.partDescription = partDescription;
+    public void setPartDescription(String description){
+        this.description = description;
     }
-
-    public int getQuantity(){
-        return quantity;
-    }
-
-    public void setQuantity(int quantity){
-        if(quantity >= 0){
-            this.quantity = quantity;
-          } else {
-              throw new IllegalArgumentException("Quantity cannot be negative");
-          }
-    }
-
-    public double getPrice(){
-        return price;
-    }
-
-    public void setPrice(double price){
-        if(price >= 0){
-            this.price = price;
-        } else {
-            throw new IllegalArgumentException("Price cannot be negative");
+    public void setQuantity(int quantityOfItem){
+        if(quantityOfItem > 0){
+            this.quantityOfItem = quantityOfItem;
+        }
+        else{
+            quantityOfItem = 0;
         }
     }
-
-    public double getInvoiceAmount(){
-        return (double) price * quantity;
+    public void setPriceItem(double pricePerItem){
+        if(pricePerItem > 0.0){
+            this.pricePerItem = pricePerItem;
+        }
+        else{
+            pricePerItem = 0.0;
+        }
     }
-
+    public double getInvoiceAmount(){
+        return quantityOfItem * pricePerItem;
+    }
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Invoice[PartNumber=").append(partNumber)
-          .append(", PartDescription=").append(partDescription)
-          .append(", Quantity=").append(quantity)
-          .append(", Price=").append(String.format("%.2f", price)).append("]");
+        sb.append(String.format("Part Number: %s, Description: %s, Quantity: %d, Price: %.2f", partNumber, description, quantityOfItem, pricePerItem));
         return sb.toString();
     }
-    
 }
