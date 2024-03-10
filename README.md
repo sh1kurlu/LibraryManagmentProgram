@@ -2,6 +2,9 @@
 # ID: 19525
 # CRN: 20420
 
+---
+## __Commits From Previous Weeks__
+
 ## week03
 ### Feb 18
 - added a 'ToString' method to `Point.java` file because 'Task 17' The commit id (SHA, hash) value is `ca76998890d95c688fd625c7aa9d8eff02430a60`. +`ca76998`
@@ -51,6 +54,18 @@
 ### Mar 3
 - Updated 'Point' and 'Segment' classes for week06 
 - Commit _SHA_ value is `9139bcf5ef66fc38c1937458cb9d87ca6c662e63`
+
+## week03
+### Mar 10
+- Added exception handlers in the original 'Invoice.java' for Task 3
+- Commit _SHA_ value is `30e89665c86572f230c516c1333e9772eefb6830`
+
+## week03
+### Mar 10
+- Reverted the 'Invoice.java' back to itself
+- Commit _SHA_ value is `65a6de447145dba7b23db03677c15ca4f72ea5b8`
+---
+
 
 
 ## Week02 Folder
@@ -2059,6 +2074,269 @@ System.out.println("Result of b: " + result_B);
 ```
 
 - In the `main()` method, the addition and subtraction of BigDecimal are tested with given 'sample inputs'.
+
+
+# Week07
+## Task 1 
+
+__The exception block in this Java program is responsible for gracefully handling errors and preventing application crashes due to unanticipated input__.
+
+```java
+try {
+                for (int i = 0; i < word.length(); i++) {
+                    char currentChar = word.charAt(i);
+                    if (Character.isLetter(currentChar)) {
+                        counts[currentChar - 'a']++;
+                    }
+                }
+
+                System.out.println("\tHere are the letters:");
+
+                for (int i = 0; i < counts.length; i++) {
+                    if (counts[i] != 0) {
+                        System.out.println((char) (i + 'a') + ": " + counts[i]);
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Please enter only English letters!");
+            }
+
+```
+            
+- In this snippet, we are counting the frequency of each letter in the input words using a try-catch block.
+- If any error is encountered while processing an input word (say, if the user input something that's not an English letter, causing an array indexing error), the Exception catch block is invoked and a simple error message is displayed to the user, suggesting to enter only English letters. 
+- This way, the program continues to run and doesn't crash due to the various exceptions that could occur.
+
+## Task 2
+__The exception handling part of this code is designed to handle scenarios where _invalid_ input is given.__
+__In this program, the invalid scenario is when a _negative number_ is given as input for finding the factorial.__
+
+
+##### In the factorial(int n) method, there is an if condition:
+
+
+``` java
+
+if(n < 0){
+    throw new IllegalArgumentException("Negative value detected!");
+}
+This condition checks if n, the input number for which factorial is to be computed, is less than zero. If it is, an IllegalArgumentException is thrown with the message "Negative value detected!".
+```
+
+Now, in the main method, the invocation to factorial method is wrapped inside a try block:
+
+
+```java
+try{
+    System.out.println(factorial(-12));
+}catch(RuntimeException e){
+    System.out.println(e.getMessage());
+}
+```
+
+So, if the `IllegalArgumentException` is thrown from the factorial method (as would happen when input is -12 in this case), this exception is caught in the catch block. 
+
+
+- The `RuntimeException e` in the catch block catches any exception that is a RuntimeException or its subclass (Including IllegalArgumentException, as it is a subclass of RuntimeException). 
+- When this happens, the catch block executes and the e.getMessage() prints the message that was set when the exception was thrown - "Negative value detected!". 
+- This way, the program can handle the error elegantly instead of crashing.
+
+## Task 4
+
+- Copied and pasted the `Invoice class` from the week03 folder, then modified its methods.
+- Included the `IllegalArgumentException` to handle cases where the quantity and the price of an item are negative (_in setter methods of each_). 
+- The program will display the message that the quantity cannot be negative and the price per item cannot be negative relatively.
+
+```java
+public void setQuantity(int quantityOfItem){
+        if(quantityOfItem <= 0) {
+            throw new IllegalArgumentException("Quantity cannot be negative or zero");
+        }
+        this.quantityOfItem = quantityOfItem;
+    }
+   
+    public void setPriceItem(double pricePerItem){
+        if(pricePerItem <= 0.0) {
+            throw new IllegalArgumentException("Price cannot be negative or zero");
+        }
+        this.pricePerItem = pricePerItem;
+    }
+```
+
+## Task 4
+- Copied the Customer(_Task9, week05_)and its subclass Account classes from the week05 folder and modified their functionality.
+- Created the InvalidAmountException for handling errors. If the included withdrawal amount exceeds the balance, the program displays the message: `'Withdrawal amount cannot be more than the balance`
+- Made a test class to test the functionalities of new 'Account.java'
+
+#### Withdrawal Class:
+```java
+public Account withdraw(double amount) throws InvalidAmountException {
+        if (amount > balance) {
+            throw new InvalidAmountException("Amount of withdrawal cannot be more than the balance!");
+        }
+        balance -= amount;
+        return this;
+    }
+```
+#### Exception in Test Class:
+```java
+try {
+            System.out.println("Current balance: $" + account.getBalance());
+            
+            System.out.println("Amount to withdraw:");
+            double withdrawAmount = scanner.nextDouble();
+            account.withdraw(withdrawAmount);
+            
+            System.out.println("New balance after withdrawal: $" + account.getBalance());
+        } catch (InvalidAmountException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            scanner.close();
+        }
+```
+
+## Task 5
+# CustomUserGeneration Class and Exception Handling
+
+The `CustomUserGeneration` class contains a `createUser` method. This method creates a new user, and it uses exceptions to handle the error cases related to username, password, and roles.
+
+## Exceptions
+
+The `CustomUserGeneration` class uses two custom exceptions:
+
+- `InvalidUsernameException` - an exception specific to invalid usernames.
+- `InvalidPasswordException` - an exception specific to invalid passwords.
+
+The exceptions are defined using the `class` keyword and extend the built-in Java `Exception`.
+
+```java
+class InvalidUsernameException extends Exception{
+    public InvalidUsernameException(String message){
+        super(message);
+    }
+}
+
+
+class InvalidPasswordException extends Exception{
+    public InvalidPasswordException(String message){
+        super(message);
+    }
+}
+```
+
+## Exception handling inside createUser
+
+`createUser` uses these exceptions to verify the username and password passed in.
+
+- If the username is null or less than 3 characters long:
+```java
+if (username == null || username.length() < 3)
+     throw new InvalidUsernameException("Username cannot contain less than three symbols");
+```
+
+- If the username does not start with an alphabetical character:
+```java
+if (!Character.isAlphabetic(username.charAt(0)))
+    throw new InvalidUsernameException("Username cannot start with non-alphabetical character");
+```
+
+- If the password is less than 8 characters long:
+```java
+if (password.length() < 8)
+     throw new InvalidPasswordException("The length of the password cannot be less than 8.");
+```
+
+- If any of these conditions are not met, the corresponding exception is thrown with an appropriate message.
+
+- The function also checks if the roles array is null or empty, in which case it throws an `IllegalArgumentException`.
+```java
+if (roles == null || roles.length == 0)
+    throw new IllegalArgumentException("The list of role can not be empty or null");
+```
+
+## Catching the Exceptions in main
+
+Exceptions thrown by `createUser` are caught in the `main` function using multiple `catch` blocks.
+
+- If `InvalidUsernameException` is thrown:
+```java
+catch (InvalidUsernameException e) {
+    e.printStackTrace();
+}
+```
+
+- If `InvalidPasswordException` is thrown:
+```java
+catch (InvalidPasswordException e) {
+    e.printStackTrace(); 
+}
+```
+
+- If `IllegalArgumentException` is thrown:
+```java
+catch (IllegalArgumentException e){
+```
+
+## Task 6 
+
+#### Exceptions in `ParseNumbers.java`:
+
+
+Created custom _NoInputException_, which is thrown when no integer inputs are present.
+
+
+```java
+class NoInputException extends Exception{
+        public NoInputException(String message){
+            super(message);
+        }
+    }
+```
+
+#### Exception Handling in main method
+
+
+- The NumberFormatException is a built-in Java Exception. It is raised when an attempt to convert a string to one of the numeric types fails due to the string format being inappropriate. 
+- Here, NumberFormatException is used in the main function to handle the event when there's an attempt to parse non-integer inputs.
+
+```java
+while (scan.hasNext()) { 
+        word = scan.next();
+        try{
+        sum += Integer.parseInt(word); 
+        count++;
+        }
+        catch(NumberFormatException e){
+            System.out.println(word + " Is not a valid input");
+        }
+    }
+```
+
+- In the `try-catch` block, non-integer inputs are captured and handled by outputting a message to the console.
+
+
+__The custom NoInputException is thrown when no integers are found in the entered line.__
+
+
+```java
+try{
+    if (count == 0)
+    throw new NoInputException("No Input");
+    else
+        System.out.printf("Sum = %d\nCount = %d\nAverage = %.3f\n", sum, count, (float) sum / count);
+    }
+    catch (NoInputException e){
+        System.out.println(e.getMessage());
+    }
+```
+
+- In this block, if the `count` is 0 (indicating no integers have been parsed and added to `sum`), a `NoInputException` is thrown with the message "No Input".
+- However, if `count` is not 0, the sum, count, and average are printed to the console.
+- If the `NoInputException` is thrown, it is caught and the exception message is printed to the console.
+
+
+
+
 
 
 
