@@ -7,6 +7,7 @@ public class Invoice {
     private String description;
     private int quantityOfItem;
     private double pricePerItem;
+    
     public Invoice (String partNumber, String description, int quantityOfItem, double pricePerItem){
         this.partNumber = partNumber;
         this.description = description;
@@ -32,21 +33,19 @@ public class Invoice {
         this.description = description;
     }
     public void setQuantity(int quantityOfItem){
-        if(quantityOfItem > 0){
-            this.quantityOfItem = quantityOfItem;
+        if(quantityOfItem <= 0) {
+            throw new IllegalArgumentException("Quantity cannot be negative or zero");
         }
-        else{
-            quantityOfItem = 0;
-        }
+        this.quantityOfItem = quantityOfItem;
     }
+   
     public void setPriceItem(double pricePerItem){
-        if(pricePerItem > 0.0){
-            this.pricePerItem = pricePerItem;
+        if(pricePerItem <= 0.0) {
+            throw new IllegalArgumentException("Price cannot be negative or zero");
         }
-        else{
-            pricePerItem = 0.0;
-        }
+        this.pricePerItem = pricePerItem;
     }
+
     public double getInvoiceAmount(){
         return quantityOfItem * pricePerItem;
     }
