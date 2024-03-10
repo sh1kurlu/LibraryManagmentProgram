@@ -24,7 +24,9 @@ public class ParseNumbers {
             sum += Integer.parseInt(word); 
             count++;
             }
-            catch(NumberFormatException e){}
+            catch(NumberFormatException e){
+                System.out.println(word + " Is not a valid input");
+            }
         }
 
         scan.close();
