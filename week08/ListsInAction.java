@@ -4,6 +4,7 @@ import java.util.*;
 
 
 public class ListsInAction {
+
     public static void main(String[] args) {
         List<Integer> list1 = new ArrayList<>();
 
