@@ -2335,12 +2335,153 @@ try{
 - If the `NoInputException` is thrown, it is caught and the exception message is printed to the console.
 
 
+--- 
+## Week08
+### 1) List in Action
+
+This program demonstrates various operations on lists and shows the usage of different collection types in Java.
+
+## Code Explanation
+
+- The code starts by importing the necessary Java utilities.
+- It defines a class named `ListsInAction`.
+- Inside the `main` method, the code creates an `ArrayList` called `list1` and adds integers 1, 2, and 3 to it.
+- It then prints out the list using the `toString` method and demonstrates accessing elements using a `for` loop, an enhanced `for` loop, and an iterator.
+- Next, the code creates another `ArrayList` called `shoppingList` and adds various string items to it.
+- It performs similar operations on `shoppingList` as before, demonstrating the different ways to print, access, and manipulate elements in a list.
+- The code removes an item from `shoppingList` and creates a new list called `newShoppingList` using the elements from `shoppingList`.
+- `newShoppingList` is modified by adding two more items and printing it out.
+- It checks if the `newShoppingList` contains the item "tea" and prints an appropriate message based on the result.
+- Finally, a `LinkedList` called `newLinkedList` is created, and elements are added to it.
+- `newShoppingList` is then added to `newLinkedList`, and the first and last elements are removed and printed.
+
+## 2) Sort the elements of list
+### This Java code is a simple program to sort integer lists using various techniques.
+
+```java
+public class SortElementsOfList {
+    public static void main(String[] args) {
+```
+
+### The program creates a class SortElementsOfList with a main method.
 
 
+```java
+List <Integer> unsorted = new ArrayList<Integer>();
+unsorted.add(5);
+unsorted.add(4);
+unsorted.add(3);
+Collections.sort(unsorted);
+System.out.println("\"Collections.sort\" version: " +unsorted);
+```
+
+### An ArrayList of integers is created and populated with values. This list is sorted using Collections.sort method, and the sorted list is printed.
+
+```java
+List <Integer> unsorted2 = new ArrayList<Integer>();
+unsorted2.add(6);
+unsorted2.add(5);
+unsorted2.add(4);
+unsorted2.sort(null);
+System.out.println("\"List.sort\" version: " +unsorted2);
+```
+
+### A second list of integers is created and sorted using the .sort() method of List class, and the sorted list is printed.
+
+```java
+List <Integer> unsorted3 = new ArrayList<Integer>();
+unsorted3.add(10);
+unsorted3.add(9);
+unsorted3.add(8);
+unsorted3.sort(new Comparator<Integer>() {
+    @Override
+    public int compare(Integer num1, Integer num2) {
+        return num1.compareTo(num2);
+    }
+});
+System.out.println("\"Comparator\" (anonymous class): " + unsorted3);
+
+unsorted3.sort(new CustomComparator());
+System.out.println("\"Comparator\" (concrete class): " + unsorted3);
+```
+
+### A third list of integers is created. Two different comparators are used to sort this list, first is an anonymous inner Comparator class, second is a CustomComparator class. The sorted lists are printed.
+
+```java
+class CustomComparator implements Comparator {
+    @Override
+    public int compare(Integer num1, Integer num2) {
+        return num1.compareTo(num2);
+    }
+}
+```
+
+- The CustomComparator class is created, implementing Comparator and overriding its compare method to be used for sorting.
+
+## 3)List Of Accounts
+
+This Java code represents a simple simulation of bank accounts and provides functionality to sort them based on different criteria.
+
+### Account Class
+
+An individual account is characterized by the account holder's first name, last name, and the account balance. The class provides methods for 
+1. Constructing an account object.
+2. Getting a full name of the account holder.
+3. Getting the balance of the account.
+4. A string representation of the account.
+
+### ListOfAccounts Class
+
+This class creates a list of various accounts. It then performs two sorts on this list:
+1. Sorting by the full name of the account holder.
+2. Sorting by the account balance.
+
+After each sorting operation, the sorted list is printed on the console. In this way, the user can see the arrangement of accounts before and after each sorting method.
 
 
+## 4) Distinct Words
 
+The Java code in the `DistinctWords` program performs following steps:
 
+1. Creates an array of `String` that contain few names (some of them are repeated).
+
+2. Converts this array to a `List` named `namesList`.
+
+3. Constructs a `LinkedHashSet` named `uniqueNamesSet` from this list. This data structure maintains the insertion order and doesn't allow duplicate entries, which is used to remove duplicates from `namesList`.
+
+4. Converts this `LinkedHashSet` back to a `List` named `uniqueNamesList`.
+
+5. Sorts `uniqueNamesList` in ascending order.
+
+6. Prints out the names from sorted `uniqueNamesList`, which are distinct and sorted.
+
+## 5) Queue Demo
+
+The `QueueDemo` Java code illustrates a scenario where people are buying bread. It demonstrates the use of a queue in computing how many people can purchase bread based on the supply of bread and each person's needed amount.
+
+1. `main` function: A given amount of bread (`totalBreads`) and an array specifying the required bread amount per person (`bread`) is provided. The `calculateNumber` function is invoked to compute the total number of people who can buy bread with the given supply.
+
+2. `calculateNumber` function:
+   - It initializes a queue with the required bread amount per person.
+   - It initializes a counter (`personsCanBuyBread`) with zero to keep track of the number of people who can get bread.
+   - Then it enters a loop where it dequeues from the queue as long the queue is not empty. The dequeued value is considered as the required bread amount for a consumer.
+     - If the total bread is more or equal to the required bread per consumer, it reduces the total bread by the required amount for the current consumer and increases the number of persons who can buy bread.
+     - Otherwise, it breaks the loop as there is not enough bread for the current consumer.
+
+The result, indicating the total number of people who can buy bread, is printed to the console in the `main` function.
+
+## 6) Priority Queue Demo
+
+The `PriorityQueueDemo` Java code demonstrates an approach to a bread-buying scenario making use of a Priority Queue. The Priority Queue allows the persons who require the least amount of bread to buy first.
+
+1. `main` function: It initiates the available amount of bread (`totalBreads`) and an array that specifies the required amount of bread for each individual (`bread`). It calls `calculateNumber` to figure out the total amount of people that can buy bread with the supplied amount.
+
+2. `calculateNumber` function:
+   - It builds a priority queue with the required amount of bread for each individual.
+   - A counter is set(`personsCanBuyBread`) to zero to track how many people can purchase bread.
+   - It enters a loop that continues until the priority queue becomes empty. In each loop iteration, the total available bread is reduced by the amount needed by the person who requires the least amount(divided by priority). The number of buyers that can be supplier (`personsCanBuyBread`) is increased.
+
+The program finishes by producing the output of the `main` function which prints the maximum number of people that can be supplied with the available bread.
 
 
 
