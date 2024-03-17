@@ -32,16 +32,13 @@ class Account {
 
 public class ListOfAccounts {
     public static void main(String[] args) {
-        // Create a list of Accounts
         List<Account> accountList = new ArrayList<>();
 
-        // Add elements to the list
         accountList.add(new Account("Mehdi", "Shukurlu", 3000.0));
         accountList.add(new Account("Cavid", "Aghayev", 2000.0));
         accountList.add(new Account("Ramil", "Zohrabli", 2500.0));
         accountList.add(new Account("Kamal", "Mammadov", 1000.0));
 
-        // Print the elements
         System.out.println("Original List:");
         for (Account account : accountList) {
             System.out.println(account);
