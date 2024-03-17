@@ -33,7 +33,6 @@ public class SortElementsOfList {
         });
         System.out.println("\"Comparator\" (anonymous class): " + unsorted3);
         
-        // Sort using Comparator interface (concrete class)
         unsorted3.sort(new CustomComparator());
         System.out.println("\"Comparator\" (concrete class): " + unsorted3);
     }
