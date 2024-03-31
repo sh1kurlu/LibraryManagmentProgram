@@ -2483,6 +2483,62 @@ The `PriorityQueueDemo` Java code demonstrates an approach to a bread-buying sce
 
 The program finishes by producing the output of the `main` function which prints the maximum number of people that can be supplied with the available bread.
 
+--- 
+
+## Week09
+
+## Task 1
+
+This Java program implements a simple task scheduler using a priority queue. The `Taskfile` class represents tasks with properties such as name, duration, and priority. Tasks are added to a priority queue based on their priority. The main method initializes a priority queue of tasks, schedules tasks until available time is exhausted, and prints the total time spent on tasks and the remaining available time. If a task cannot be completed within the available time, it breaks the loop and prints a message accordingly.
+
+## Usage
+1. Compile and run the `Task1` class.
+2. Adjust the available time and task durations as needed.
+3. Observe the output to see which tasks are completed within the available time and the remaining time.
+
+
+## Task 2
+
+This Java program compares two methods of sorting elements in a linked list. In the `main` method, it generates random integers and adds them to two separate linked lists. 
+
+1. In the first approach, the method `addInSortedOrder` is used to insert elements into `list1` in sorted order. It iterates over the list and inserts the element at the correct position.
+2. In the second approach, random integers are directly added to `list2`, and then the entire list is sorted using `Collections.sort()`.
+
+The program measures the time taken for each approach and prints the elapsed time. It provides insights into the efficiency of sorting by insertion versus sorting the entire list.
+
+## Task 3
+
+This Java program demonstrates how to print the characters of a string along with their corresponding indexes. 
+
+The `printCharactersWithIndexes` method takes a string input and a boolean flag to indicate whether to print the indexes in ascending or descending order. 
+
+It utilizes a `TreeMap` to store characters as keys and their corresponding indexes as values. The indexes are stored in an `ArrayList` and added to the map using `computeIfAbsent` method. 
+
+Finally, it iterates over the map and prints each character followed by its indexes, either in ascending or descending order based on the flag.
+
+## Task 4
+
+This Java program analyzes the frequency of characters in a given string and identifies the most and least frequent characters.
+
+The `Task4` class maintains a cache of character frequency maps to optimize repeated calculations. The `mostFrequentCharacter` and `leastFrequentCharacter` methods calculate the character frequencies using the `calculateCharacterFrequency` method if the result is not already cached. Then, they iterate over the frequency map to find the most and least frequent characters.
+
+The `calculateCharacterFrequency` method computes the frequency of each character in the input string and returns a map containing characters as keys and their frequencies as values.
+
+The program demonstrates efficient character frequency analysis with caching to enhance performance for repeated computations.
+
+
+## Task 5
+
+This Java program identifies the unique characters present in a given string.
+
+The `Task5` class maintains a cache of sets containing unique characters to optimize repeated calculations. 
+
+The `uniqueCharacters` method checks if the input string is already cached. If not, it calculates the unique characters using the `calculateUniqueCharacters` method and caches the result. It then returns the set of unique characters.
+
+The `calculateUniqueCharacters` method iterates through the input string and adds each character to a set. This ensures that duplicate characters are automatically removed, leaving only unique characters.
+
+The program demonstrates an efficient approach to find unique characters in a string with caching for improved performance.
+
 
 
 
