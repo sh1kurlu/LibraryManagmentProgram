@@ -2539,8 +2539,154 @@ The `calculateUniqueCharacters` method iterates through the input string and add
 
 The program demonstrates an efficient approach to find unique characters in a string with caching for improved performance.
 
+---
+## Week 10
+### __Task1__
+
+This Java code defines a class `Task` and a generic class `Generics`. It includes methods for printing arrays, finding the middle and maximum elements, and sorting arrays using bubble sort. The `Task` class has a private string field `s` and methods for getting and printing the string value. The `Generics` class contains generic methods for array manipulation, including printing, finding middle and maximum elements, and sorting.
+
+## Class: Task
+
+### Fields:
+- `s`: A private string field to store a value.
+
+### Methods:
+- `Task(String s)`: Constructor to initialize the `s` field with the provided string.
+- `getS()`: Getter method to retrieve the string value.
+- `toString()`: Overrides the `toString()` method to return the string value stored in `s`.
+
+## Class: Generics
+
+### Methods:
+- `printArray(T[] array)`: Prints the elements of a generic array.
+- `printArray(T[] array, int lowerIndex, int upperIndex)`: Prints the elements of a generic array within a specified range.
+- `printArray(Task[] array)`: Specialized method to print pairs of `Task` objects.
+- `getMiddleElement(T[] array)`: Returns the middle element of a generic array.
+- `getMaxElement(T[] array)`: Returns the maximum element of a generic array.
+- `bubbleSort(T[] array)`: Sorts a generic array using bubble sort algorithm.
+- `swap(T[] array, int i, int j)`: Swaps two elements in a generic array.
 
 
+### __Task 2__
+
+This Java code defines a generic class `Generics` with a type parameter `T` constrained to extend `Number`. It contains methods to perform mathematical operations on the stored number, such as finding the reciprocal, fraction, and absolute value for both double and float types.
+
+## Class: Generics
+
+### Fields:
+- `number`: A private field of type `T` to store a number.
+
+### Constructor:
+- `Generics(T number)`: Constructor to initialize the `number` field with the provided value.
+
+### Methods:
+- `reciprocal()`: Calculates the reciprocal of the stored number. Throws an exception if the number is zero.
+- `fraction()`: Calculates the fraction part of the stored number.
+- `absValueOfDouble()`: Calculates the absolute value of the stored number as a double.
+- `absValueOfFloat()`: Calculates the absolute value of the stored number as a float.
+
+## Class: Task2
+
+### Main Method:
+- Reads a double input from the user.
+- Creates an instance of `Generics` with the provided double value.
+- Calls various methods of the `Generics` instance to perform mathematical operations and prints the results.
+
+## __Task 3__
+
+This Java code defines a generic class `Pair` that represents a pair of two elements of potentially different types along with an associated comment. It then prompts the user to enter values for two pairs and their comments, creates instances of the `Pair` class with the provided values, and prints them.
+
+## Class: Pair
+
+### Fields:
+- `first`: A private field of type `T` to store the first element of the pair.
+- `second`: A private field of type `U` to store the second element of the pair.
+- `comment`: A private field to store an associated comment.
+
+### Constructor:
+- `Pair(T first, U second, String comment)`: Constructor to initialize the `first`, `second`, and `comment` fields with the provided values.
+
+### Methods:
+- `getFirst()`: Returns the first element of the pair.
+- `getSecond()`: Returns the second element of the pair.
+- `getComment()`: Returns the associated comment.
+- `setComment(String comment)`: Sets the associated comment.
+- `toString()`: Overrides the `toString()` method to return a string representation of the pair along with the comment.
+
+## Class: Task3
+
+### Main Method:
+- Prompts the user to enter values for the first pair (`Pair 1`) and its comment.
+- Prompts the user to enter values for the second pair (`Pair 2`) and its comment.
+- Creates instances of `Pair` with the provided values.
+- Prints the created pairs along with their comments.
+
+
+## __Task 4__
+
+This Java code defines a class `Task4` representing bank accounts and includes methods to test certain properties of collections of integers, strings, and account objects.
+
+## Class: Task4
+
+### Fields:
+- `accountNumber`: An integer representing the account number.
+- `accountHolder`: A string representing the account holder's name.
+- `balance`: A double representing the account balance.
+
+### Constructor:
+- `Task4(int accountNumber, String accountHolder, double balance)`: Constructor to initialize the account number, account holder, and balance fields.
+
+### Methods:
+- `countElementsWithProperty(Collection<T> collection, PropertyChecker<T> checker)`: A generic method that counts the number of elements in a collection that satisfy a given property.
+- `testEvenIntegers()`: Tests the property of even integers in an array of integers.
+- `testPalindromeStrings()`: Tests the property of palindrome strings in an array of strings.
+- `testEmptyAccounts()`: Tests the property of empty accounts in a list of `Task4` objects.
+
+### Interfaces:
+- `PropertyChecker<T>`: An interface defining a method `check(T element)` to check a property of an element.
+
+### Inner Classes:
+- `EvenIntegerChecker`: An implementation of `PropertyChecker` for checking even integers.
+- `PalindromeStringChecker`: An implementation of `PropertyChecker` for checking palindrome strings.
+- `EmptyAccountChecker`: An implementation of `PropertyChecker` for checking empty accounts.
+
+### Main Method:
+- Calls the `testEvenIntegers()`, `testPalindromeStrings()`, and `testEmptyAccounts()` methods to test the properties of even integers, palindrome strings, and empty accounts, respectively.
+
+
+## __Task 5__
+
+This Java code defines a generic stack implementation `Task5` with methods to push, pop, and peek elements, along with exception classes for handling stack full and empty conditions.
+
+## Class: Task5<T>
+
+### Fields:
+- `maxSize`: An integer representing the maximum size of the stack.
+- `top`: An integer representing the index of the top element in the stack.
+- `stackArray`: An array of type `T` to store the stack elements.
+
+### Constructor:
+- `Task5(int size)`: Constructor to initialize the maximum size and set the top index to -1.
+
+### Methods:
+- `push(T element)`: Pushes an element onto the stack. Throws a `StackFullException` if the stack is full.
+- `pop()`: Pops an element from the stack and returns it. Throws a `StackEmptyException` if the stack is empty.
+- `peek()`: Returns the element at the top of the stack without removing it. Throws a `StackEmptyException` if the stack is empty.
+- `isEmpty()`: Checks if the stack is empty.
+- `isFull()`: Checks if the stack is full.
+
+## Exception Classes:
+
+### `StackFullException`
+- Constructor: `StackFullException(String message)`: Constructor to set the exception message.
+
+### `StackEmptyException`
+- Constructor: `StackEmptyException(String message)`: Constructor to set the exception message.
+
+### Main Method:
+- Creates an instance of `Task5` with an integer type stack.
+- Attempts to push elements onto the stack, exceeding its capacity to trigger a `StackFullException`.
+- Attempts to peek and pop elements from the stack, handling `StackEmptyException` when the stack is empty.
 
 
 
