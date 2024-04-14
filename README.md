@@ -2689,13 +2689,253 @@ This Java code defines a generic stack implementation `Task5` with methods to pu
 - Attempts to peek and pop elements from the stack, handling `StackEmptyException` when the stack is empty.
 
 
+---
+
+# __Week 11__
+
+## __Task 1__
+
+This Java code demonstrates exception handling using try-catch-finally blocks.
+
+## Code Explanation
+
+The `Task1` class contains a `main` method where the `testFinally` method is invoked within a try-catch block to handle any exceptions thrown.
+
+The `testFinally` method is declared with a `throws` clause, indicating that it may throw an `Exception`. Within this method:
+
+1. It attempts to throw a `ExceptionDemo4` instance.
+2. If a `ExceptionDemo4` is caught, it rethrows a `ExceptionDemo2`.
+3. The `finally` block is executed regardless of whether an exception is thrown or not.
+4. Inside the `finally` block, it attempts to throw a `ExceptionDemo3` instance.
+
+## Custom Exceptions
+
+The code defines four custom exception classes:
+- `ExceptionDemo1`
+- `ExceptionDemo2`
+- `ExceptionDemo3`
+- `ExceptionDemo4`
+
+Each extends the `Exception` class, providing specific exception types for different scenarios in the code.
+
+## Execution Flow
+
+1. The `main` method invokes `testFinally`.
+2. `testFinally` attempts to throw `ExceptionDemo4`.
+3. If `ExceptionDemo4` is caught, it throws `ExceptionDemo2`.
+4. Regardless of the exceptions thrown, the `finally` block executes.
+5. Inside the `finally` block, `ExceptionDemo3` is thrown.
+6. If any exceptions occur during this process, they are printed to the standard error output.
+
+## __Task 2__
+
+This Java code demonstrates file input and output operations using `FileInputStream` and `FileOutputStream`.
+
+## Code Explanation
+
+The `Task2` class is located in the `week11` package. It contains a `main` method that throws an `IOException`.
+
+Within the `main` method:
+
+1. It initializes a string variable `stringData` and a string variable `file` with the name "output.txt".
+2. It creates a `FileOutputStream` object `fos` to write the string data to the file.
+3. It writes the content of `stringData` to the file using the `write` method of `fos`.
+4. It closes the `FileOutputStream`.
+5. It creates a `BufferedReader` object `bufread` to read the content of the file.
+6. It reads each line of the file using the `readLine` method of `bufread` and prints it to the console.
+7. It closes the `BufferedReader`.
+8. It creates a `FileInputStream` object `fis` to read the content of the file.
+9. It reads each character of the file using the `read` method of `fis` and appends it to a `StringBuilder` object `content`.
+10. It prints the content of the file using `System.out.println`.
+11. It closes the `FileInputStream`.
+12. It reinitializes `fis` to read the content of the file.
+13. It reads the content of the file into a byte array `b` using the `read` method of `fis`.
+14. It appends the content of the byte array to a `StringBuilder` object `content` and prints it to the console.
+15. It closes the `FileInputStream`.
+
+## File Handling
+
+The code demonstrates various file handling operations, including:
+- Writing data to a file (`FileOutputStream`)
+- Reading data from a file (`FileInputStream`)
+- Reading data line by line (`BufferedReader`)
+
+## Execution Flow
+
+1. The program writes the string "Java" to a file named "output.txt".
+2. It then reads the content of the file in two different ways:
+    - Reading each character individually and appending it to a StringBuilder.
+    - Reading the content into a byte array and converting it to a string before appending it to the StringBuilder.
+3. The content of the file is printed to the console twice, once for each reading method.
+
+
+## __Task 3__
+
+This Java code demonstrates file copying and checking if two files are identical.
+
+## Code Explanation
+
+The `Task3` class is located in the `week11` package. It contains a `main` method that throws an `IOException`.
+
+### Copying Files
+
+1. The `main` method initializes two string variables, `originalFilePath` and `duplicateFilePath`, with the paths of the original and duplicate files respectively.
+2. It creates a `FileInputStream` object `originalFileInputStream` to read the content of the original file.
+3. It creates a `FileOutputStream` object `duplicateFileOutputStream` to write the content to the duplicate file.
+4. It reads each byte from the original file using the `read` method of `originalFileInputStream` and writes it to the duplicate file using the `write` method of `duplicateFileOutputStream`.
+5. After copying, it closes both input and output streams.
+
+### Checking File Identity
+
+The `Task3` class also contains a static method `isFilesIdentical` that takes two file paths as input arguments and returns a boolean indicating whether the files are identical.
+
+1. It creates two `FileInputStream` objects to read from each file.
+2. It compares the bytes of both files byte by byte using a while loop.
+3. If any byte differs between the two files, it returns `false`.
+4. If the loop completes without finding any differences, it returns `true`.
+
+## Execution Flow
+
+1. The `main` method copies the content of the original file to a duplicate file.
+2. The `isFilesIdentical` method can be used to check if two files have the same content by comparing their bytes.
+
+## __Task 4__
+
+This Java code demonstrates file writing and reading using `FileWriter` and `FileReader` respectively.
+
+## Code Explanation
+
+The `Task4` class is located in the `week11` package. It contains a `main` method that throws an `IOException`.
+
+### Writing to File
+
+1. The `main` method initializes a string variable `file` with the name "test.txt" and another string variable `text` with the content "Coding!".
+2. It creates a `FileWriter` object `wr` to write the text to the file.
+3. It writes the content of `text` to the file using the `write` method of `wr`.
+4. After writing, it closes the `FileWriter`.
+
+### Reading from File
+
+1. It creates two `FileReader` objects to read from the file.
+2. The first `FileReader` (`reader1`) reads each character individually using the `read` method and appends it to a `StringBuilder` `s1`.
+3. The second `FileReader` (`reader2`) reads the content of the file into a character array `b` using the `read` method.
+4. It appends the content of the character array to another `StringBuilder` `s2`.
+5. Finally, it prints the content of `s2` to the console.
+6. Both `FileReader` objects are closed after reading.
+
+## Execution Flow
+
+1. The program writes the string "Coding!" to a file named "test.txt" using a `FileWriter`.
+2. It then reads the content of the file in two different ways:
+    - Reading each character individually.
+    - Reading the content into a character array.
+3. The content of the file is printed to the console.
+
+
+## __Task 6__
+
+This Java code demonstrates serialization and deserialization of objects using `ObjectOutputStream` and `ObjectInputStream`.
+
+## Code Explanation
+
+The `Person` class implements the `Serializable` interface, which indicates that its objects can be serialized (converted into a sequence of bytes) and deserialized (converted back into objects).
+
+### Person Class
+
+The `Person` class has two private fields: `name` and `age`, along with getter and setter methods for each field. It overrides the `toString` method to provide a string representation of a `Person` object.
+
+### Serialization
+
+1. The `savingPersons` method takes an array of `Person` objects and a filename as input arguments.
+2. It creates an `ObjectOutputStream` to write the `persons` array to a file specified by the `filename`.
+3. It writes the `persons` array to the file using the `writeObject` method of `ObjectOutputStream`.
+4. After writing, it closes the `ObjectOutputStream`.
+
+### Deserialization
+
+1. The `readingPersons` method takes a filename as an input argument.
+2. It creates an `ObjectInputStream` to read the serialized `Person` objects from the file specified by the `filename`.
+3. It reads the `Person` objects from the file using the `readObject` method of `ObjectInputStream`.
+4. It iterates over the array of `Person` objects and prints each object using the `println` method.
+5. After reading, it closes the `ObjectInputStream`.
+
+### Main Method
+
+1. In the `main` method, an array of `Person` objects is created.
+2. The array is then serialized and saved to a file named "persons.bin" using the `savingPersons` method.
+3. The serialized `Person` objects are then deserialized and printed to the console using the `readingPersons` method.
+
+## Execution Flow
+
+1. The program creates an array of `Person` objects with predefined values.
+2. It serializes the array and saves it to a file named "persons.bin".
+3. It then deserializes the array from the file and prints each `Person` object to the console.
 
 
 
+## __Task 7__
 
+This Java code demonstrates file and directory information retrieval and directory traversal.
 
+## Code Explanation
 
+The `Task7` class contains methods to print information about files and directories, and to traverse directories recursively.
 
+### `printFileInfo` Method
+
+1. The `printFileInfo` method takes a `path` as input.
+2. It creates a `File` object representing the file or directory specified by the `path`.
+3. If the file or directory does not exist, it prints a message and returns.
+4. It prints various information about the file or directory, such as name, absolute path, size, readability, writability, and executability.
+5. If the object represents a directory, it prints its contents by listing the names of the files and subdirectories.
+
+### `traverseDirectory` Method
+
+1. The `traverseDirectory` method takes a `path` as input.
+2. It prints information about the file or directory specified by the `path` using the `printFileInfo` method.
+3. If the object represents a directory, it gets a list of its contents and recursively calls itself for each content, effectively traversing the directory structure.
+
+### Main Method
+
+1. In the `main` method, a `path` variable is initialized with the name of the directory to be traversed.
+2. The `traverseDirectory` method is called with this `path` to start traversing the directory.
+
+## Execution Flow
+
+1. The program starts by calling the `traverseDirectory` method with the specified directory path.
+2. For each directory encountered during traversal, it prints information about the directory and its contents recursively.
+3. For each file encountered, it prints information about the file.
+
+## __Task 9__
+
+This Java code reads data from a CSV file containing information about persons, calculates the average age, and splits the persons into two groups based on whether their age is below or above the average. It then writes the data of each group to separate CSV files.
+
+## Code Explanation
+
+The `Task9` class contains the `main` method, which orchestrates the reading, processing, and writing of CSV data.
+
+### PersonCSV Class
+
+- The `PersonCSV` class represents a person with attributes such as ID, first name, last name, and age.
+
+### CSVReader Class
+
+- The `CSVReader` class contains a static method `readCSV` that reads data from a CSV file and returns a list of `PersonCSV` objects.
+
+### Main Method
+
+1. The main method reads data from the "persons.csv" file using the `CSVReader` class.
+2. It calculates the average age of all persons.
+3. It iterates over the list of persons, categorizing them into two groups: those with age below the average and those with age above the average.
+4. It writes the data of each group to separate CSV files: "under_average_age.csv" and "above_average_age.csv".
+
+## Execution Flow
+
+1. The program starts by reading data from the "persons.csv" file and creating `PersonCSV` objects for each record.
+2. It calculates the average age of all persons.
+3. It categorizes persons into two groups: those with age below the average and those with age above the average.
+4. It writes the data of each group to separate CSV files.
+5. Any encountered IOExceptions are printed to the standard error output.
 
 
 
