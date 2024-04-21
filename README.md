@@ -2937,10 +2937,223 @@ The `Task9` class contains the `main` method, which orchestrates the reading, pr
 4. It writes the data of each group to separate CSV files.
 5. Any encountered IOExceptions are printed to the standard error output.
 
+--
+
+## Week 12
+
+## Task 1
+### AFuncInt Interface
+
+This interface represents a functional interface with a single abstract method `apply(String input)`.
+
+- **Method:**
+  - `void apply(String input)`: An abstract method that takes a string input and performs some action.
+
+- **Static Method:**
+  - `static void print(String input)`: A static method that prints the input string to the console.
+
+- **Default Method:**
+  - `default void print(String input1, String input2)`: A default method that prints two input strings to the console.
+
+### Task1 Class
+
+This class demonstrates the usage of the `AFuncInt` interface with both anonymous classes and lambda expressions.
+
+- **Main Method:**
+  - `public static void main(String[] args)`: Entry point of the program.
+
+- **Anonymous Class Instance:**
+  - An instance of `AFuncInt` is created using an anonymous class.
+    ```java
+    AFuncInt anonymousInstance = new AFuncInt() {
+        @Override
+        public void apply(String input) {
+            System.out.println("Anonymous apply: " + input);
+        }
+    };
+    ```
+  - The `apply` method is overridden to define its behavior.
+
+- **Lambda Expression Instance:**
+  - An instance of `AFuncInt` is created using a lambda expression.
+    ```java
+    AFuncInt lambdaInstance = (input) -> System.out.println("Lambda apply: " + input);
+    ```
+  - The lambda expression defines the behavior of the `apply` method.
+
+- **Method Invocations:**
+  - Various methods of the interface and class are invoked:
+    - `anonymousInstance.apply("Test")`: Invokes the `apply` method of the anonymous instance.
+    - `AFuncInt.print("Test")`: Invokes the static `print` method of the interface.
+    - `anonymousInstance.print("Test1", "Test2")`: Invokes the default `print` method of the interface using the anonymous instance.
+    - Similar invocations are performed for the lambda instance.
 
 
+## Task 2
+### SpecificProperty Interface
 
+This functional interface defines a single method `check(T value)` that returns a boolean value based on a specific property.
 
+- **Type Parameter:** `T` represents the type of the value being checked.
+- **Method:**
+  - `boolean check(T value)`: Abstract method that checks the specified property of type `T`.
+
+### Task2 Class
+
+This class contains a generic method `filter` to filter a collection based on a specific property defined by the `SpecificProperty` interface.
+
+- **Generic Method:**
+  - `public static <T> Collection<T> filter(Collection<T> c, SpecificProperty<T> p)`: Filters the elements of a collection `c` based on the property defined by the `SpecificProperty` predicate `p`.
+
+- **Main Method:**
+  - The main method demonstrates the usage of the `filter` method with different types of properties.
+
+### Usage Examples:
+
+1. **Filtering Odd Numbers:**
+   - A `SpecificProperty<Integer>` instance `isOdd` is created to check if a number is odd.
+   - The `filter` method is used to filter odd numbers from a list of integers.
+
+2. **Filtering Points in the First Quadrant:**
+   - A `SpecificProperty<Point>` instance `isFirstQuadrant` is created to check if a point lies in the first quadrant.
+   - The `filter` method is used to filter points in the first quadrant from a list of `Point` objects.
+
+3. **Filtering Pangrams:**
+   - A `SpecificProperty<String>` instance `isPangram` is created to check if a string is a pangram.
+   - The `filter` method is used to filter pangrams from a list of strings.
+
+4. **Filtering Persons Older Than 20:**
+   - A `SpecificProperty<Person>` instance `isOlderThan20` is created to check if a person's age is greater than 20.
+   - The `filter` method is used to filter persons older than 20 from a list of `Person` objects.
+
+### Point Class
+
+This class represents a point with x and y coordinates.
+
+- **Fields:**
+  - `private int x`: Represents the x-coordinate of the point.
+  - `private int y`: Represents the y-coordinate of the point.
+
+- **Constructor:**
+  - `public Point(int x, int y)`: Initializes the point with the specified x and y coordinates.
+
+- **Methods:**
+  - `public int getX()`: Returns the x-coordinate of the point.
+  - `public int getY()`: Returns the y-coordinate of the point.
+  - `public String toString()`: Returns a string representation of the point in the form "(x, y)".
+
+### Person Class
+
+This class represents a person with a first name, last name, and age.
+
+- **Fields:**
+  - `private String firstName`: Represents the first name of the person.
+  - `private String lastName`: Represents the last name of the person.
+  - `private int age`: Represents the age of the person.
+
+- **Constructor:**
+  - `public Person(String firstName, String lastName, int age)`: Initializes the person with the specified first name, last name, and age.
+
+- **Methods:**
+  - `public int getAge()`: Returns the age of the person.
+  - `public String toString()`: Returns a string representation of the person in the form "firstName lastName (Age: age)".
+
+## Task 3
+### Calculator Interface
+
+This interface defines a single method `calculate(double a, double b)` that performs a calculation on two double values.
+
+- **Method:**
+  - `double calculate(double a, double b)`: Abstract method that takes two double values `a` and `b` and returns the result of the calculation.
+
+### Task3 Class
+
+This class demonstrates the usage of the `Calculator` interface with lambda expressions and method references for various arithmetic operations.
+
+- **Main Method:**
+  - `public static void main(String[] args)`: Entry point of the program.
+
+- **Lambda Expressions:**
+  - Instances of `Calculator` are created using lambda expressions for addition, subtraction, multiplication, and division operations.
+    ```java
+    Calculator addition = (a, b) -> a + b;
+    Calculator subtraction = (a, b) -> a - b;
+    Calculator multiplication = (a, b) -> a * b;
+    Calculator division = (a, b) -> a / b;
+    ```
+  - Each lambda expression implements the `calculate` method to perform the corresponding arithmetic operation.
+
+- **Method References:**
+  - An instance of `Calculator` is created using a method reference for exponentiation operation.
+    ```java
+    Calculator exponentiation = Math::pow;
+    ```
+  - The `Math::pow` method reference refers to the static `pow` method of the `Math` class, which calculates the power of a base to the exponent.
+
+- **Output:**
+  - The results of each arithmetic operation are printed to the console.
+    ```java
+    System.out.println("Addition: " + addition.calculate(5, 3));
+    System.out.println("Subtraction: " + subtraction.calculate(5, 3));
+    System.out.println("Multiplication: " + multiplication.calculate(5, 3));
+    System.out.println("Division: " + division.calculate(5, 3));
+    System.out.println("Exponentiation: " + exponentiation.calculate(5, 3));
+    ```
+
+### Note:
+- The lambda expressions and method references provide concise ways to implement the arithmetic operations defined by the `Calculator` interface.
+- The `Math::pow` method reference demonstrates how to use a built-in method as a functional interface implementation.
+
+## Task 5
+### Task5 Class
+
+This class showcases sorting an array of `Employee` objects based on different attributes using the `Arrays.sort()` method and various `Comparator` implementations.
+
+- **Main Method:**
+  - `public static void main(String[] args)`: Entry point of the program.
+
+- **Employee Array Initialization:**
+  - An array of `Employee` objects is initialized with three employees, each with a first name, age, and salary.
+
+- **Sorting by First Name:**
+  - The `Arrays.sort()` method is used to sort the `employees` array based on the employees' first names.
+    ```java
+    Arrays.sort(employees, Comparator.comparing(Employee::getFirstName));
+    ```
+  - This sorts the array alphabetically based on the employees' first names.
+
+- **Sorting by Age:**
+  - The `Arrays.sort()` method is used again to sort the `employees` array based on the employees' ages.
+    ```java
+    Arrays.sort(employees, Comparator.comparing(Employee::getAge));
+    ```
+  - This sorts the array in ascending order based on the employees' ages.
+
+- **Sorting by Salary:**
+  - Similarly, the `Arrays.sort()` method is used to sort the `employees` array based on the employees' salaries.
+    ```java
+    Arrays.sort(employees, Comparator.comparing(Employee::getSalary));
+    ```
+  - This sorts the array in ascending order based on the employees' salaries.
+
+### Employee Class
+
+This class represents an employee with attributes such as first name, age, and salary.
+
+- **Fields:**
+  - `private String firstName`: Represents the first name of the employee.
+  - `private int age`: Represents the age of the employee.
+  - `private double salary`: Represents the salary of the employee.
+
+- **Constructor:**
+  - `public Employee(String firstName, int age, double salary)`: Initializes an employee with the specified first name, age, and salary.
+
+- **Accessor Methods:**
+  - Getter methods such as `getFirstName()`, `getAge()`, and `getSalary()` are provided to access the employee's attributes.
+
+### Note:
+- The code demonstrates how to sort arrays of objects based on different attributes using the `Comparator` interface and lambda expressions.
+- Sorting is performed in ascending order by default. To sort in descending order, additional methods or reverse ordering can be applied to the comparator.
 
 
 

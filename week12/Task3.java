@@ -1,6 +1,5 @@
 package week12;
 
-// Functional interface
 interface Calculator {
     double calculate(double a, double b);
 }
