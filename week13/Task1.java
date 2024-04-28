@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WordCounter {
+public class Task1 {
     
     public static int countWords(String text) {
         int count = 0;
