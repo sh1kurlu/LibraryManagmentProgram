@@ -3155,8 +3155,208 @@ This class represents an employee with attributes such as first name, age, and s
 - The code demonstrates how to sort arrays of objects based on different attributes using the `Comparator` interface and lambda expressions.
 - Sorting is performed in ascending order by default. To sort in descending order, additional methods or reverse ordering can be applied to the comparator.
 
+---
+
+## Week 13
+
+## __Task 1__
+
+This package contains Java code illustrating word count operations on a text file, comparing performance between sequential and concurrent approaches.
+
+### Task1 Class
+
+This class provides methods to count words in a text file with and without concurrency.
+
+- **countWords(String text):**
+  - This method counts the number of words in the given text that have more than three characters.
+
+- **countWordsWithoutConcurrency(String filename):**
+  - This method reads the text file line by line and counts the words in each line using the `countWords` method, without concurrency.
+
+- **countWordsWithConcurrency(String filename, int chunkSize):**
+  - This method reads the text file and divides it into chunks, each containing `chunkSize` number of lines.
+  - For each chunk, it creates a separate thread to count the words concurrently.
+  - After each chunk is processed, the word count is added to a synchronized list.
+  - Finally, it sums up all the word counts from the list to get the total word count with concurrency.
+
+- **Main Method:**
+  - The main method initializes the filename of the text file and the chunk size for concurrency.
+  - It measures the time taken to count words with and without concurrency and prints the results.
+
+### Note:
+- The sequential approach reads the file line by line and counts words sequentially.
+- The concurrent approach divides the file into chunks and processes each chunk in a separate thread to leverage parallelism.
+- The concurrent approach is expected to perform faster for large files or when processing power is available for parallel execution.
+- However, the actual performance improvement may vary depending on factors such as file size, system resources, and overhead of thread creation and synchronization.
+- Care should be taken when using concurrency to ensure thread safety and avoid potential issues such as race conditions.
+
+## __Task 2__
+
+This package contains Java code illustrating a parallel task executor for executing tasks concurrently.
+
+### Task Class
+
+This class represents a task with attributes such as task ID and duration.
+
+- **Fields:**
+  - `private final int taskId`: Represents the unique identifier of the task.
+  - `private final int duration`: Represents the duration (in milliseconds) required to complete the task.
+
+- **Constructor:**
+  - `public Task(int taskId, int duration)`: Initializes a task with the specified task ID and duration.
+
+- **Accessor Methods:**
+  - `public int getTaskId()`: Returns the task ID.
+  - `public int getDuration()`: Returns the duration of the task.
+
+### ParallelTaskExecutor Class
+
+This class extends `Thread` and represents a parallel task executor that executes tasks from a blocking queue concurrently.
+
+- **Fields:**
+  - `private final BlockingQueue<Task> taskQueue`: Represents the blocking queue containing tasks to be executed.
+  - `private final AtomicInteger completedTasks`: Represents the count of completed tasks.
+
+- **Constructor:**
+  - `public ParallelTaskExecutor(BlockingQueue<Task> taskQueue, AtomicInteger completedTasks)`: Initializes the executor with the task queue and completed tasks count.
+
+- **Run Method:**
+  - `public void run()`: Overrides the `run` method of the `Thread` class. It continuously takes tasks from the queue, executes them, and increments the completed tasks count.
+
+### Task2 Class
+
+This class provides methods to create tasks, read tasks from a CSV file, and run tasks concurrently using multiple executors.
+
+- **createTasksCSV(String filePath, int taskCount):**
+  - This method generates a CSV file containing task IDs and durations.
+
+- **readTasksFromCSV(String filePath):**
+  - This method reads tasks from the CSV file and returns a list of `Task` objects.
+
+- **runTasks(List<Task> tasks, int numberOfExecutors):**
+  - This method runs tasks concurrently using a specified number of executors.
+  - It initializes a blocking queue with the tasks, creates executor threads, waits for all tasks to complete, and calculates the total execution time.
+
+- **Main Method:**
+  - The main method creates tasks, reads tasks from the CSV file, and runs tasks concurrently with different numbers of executors.
+  - It measures and prints the total execution time for each scenario.
+
+### Note:
+- The code demonstrates how to implement a parallel task executor using multiple executor threads to execute tasks concurrently.
+- The tasks are read from a CSV file and executed concurrently using a fixed number of executor threads.
+- The performance is compared for different numbers of executor threads to evaluate the impact of parallelism on task execution time.
 
 
+## __Task 3__
+
+This package contains Java code demonstrating the usage of synchronization in a multi-threaded environment.
+
+### Task3 Class
+
+This class showcases how to use synchronization to coordinate access to a shared resource (the `Counter` object) by multiple threads.
+
+### Counter Class
+
+This nested class represents a counter with methods to increment its value and retrieve its current value.
+
+- **Fields:**
+  - `private int count`: Represents the count value.
+
+- **Methods:**
+  - `public synchronized void increment()`: Increments the count value in a synchronized manner to ensure thread safety.
+  - `public synchronized int getValue()`: Returns the current count value in a synchronized manner.
+
+### Incrementor Class
+
+This nested class extends `Thread` and represents a thread that increments the counter a specified number of times (`N`).
+
+- **Fields:**
+  - `private final Counter counter`: Represents the counter to be incremented.
+  - `private final int N`: Represents the number of times to increment the counter.
+
+- **Run Method:**
+  - `public void run()`: Overrides the `run` method of the `Thread` class. It repeatedly calls the `increment` method of the counter `N` times.
+
+### Reader Class
+
+This nested class extends `Thread` and represents a thread that reads the current value of the counter a specified number of times (`N`).
+
+- **Fields:**
+  - `private final Counter counter`: Represents the counter to read from.
+  - `private final int N`: Represents the number of times to read the counter value.
+
+- **Run Method:**
+  - `public void run()`: Overrides the `run` method of the `Thread` class. It repeatedly calls the `getValue` method of the counter `N` times and prints the value.
+
+### Main Method
+
+The main method creates instances of the `Incrementor` and `Reader` classes, sharing the same `Counter` object. It starts both threads, waits for them to finish using `join`, and then prints a message indicating completion.
+
+### Note:
+- Synchronization is used to prevent race conditions when multiple threads access shared resources concurrently.
+- In this example, synchronization ensures that the counter is safely incremented and read by multiple threads without interference.
+- The use of `synchronized` methods in the `Counter` class ensures mutual exclusion, preventing concurrent access to critical sections of code.
+- Synchronization introduces overhead and can impact performance, so it should be used judiciously where needed.
+
+
+## __Task 4__
+
+This package contains Java code illustrating producer-consumer scenarios using a synchronized queue.
+
+### Task4 Class
+
+This class demonstrates the producer-consumer problem with a shoe shop scenario, where shoes are produced and consumed.
+
+### ShoeShop Class
+
+This nested class represents a shoe shop with methods to produce and consume shoes from a queue.
+
+- **Fields:**
+  - `private final Queue<String> stock`: Represents the queue of shoes in the shop.
+  - `private final int capacity`: Represents the maximum capacity of the shop's stock.
+
+- **Constructor:**
+  - `public ShoeShop(int capacity)`: Initializes the shop with the specified capacity.
+
+- **Methods:**
+  - `public synchronized void produce(String shoe) throws InterruptedException`: Produces a shoe and adds it to the stock queue, waiting if the stock is full.
+  - `public synchronized String consume() throws InterruptedException`: Consumes a shoe from the stock queue, waiting if the stock is empty.
+
+### Producer Class
+
+This nested class extends `Thread` and represents a producer that produces shoes and adds them to the shoe shop's stock.
+
+- **Fields:**
+  - `private final ShoeShop shoeShop`: Represents the shoe shop where shoes are produced.
+  - `private final int count`: Represents the number of shoes to produce.
+
+- **Run Method:**
+  - `public void run()`: Overrides the `run` method of the `Thread` class. It repeatedly calls the `produce` method of the shoe shop to produce shoes.
+
+### Consumer Class
+
+This nested class extends `Thread` and represents a consumer that consumes shoes from the shoe shop's stock.
+
+- **Fields:**
+  - `private final ShoeShop shoeShop`: Represents the shoe shop from where shoes are consumed.
+  - `private final int count`: Represents the number of shoes to consume.
+
+- **Run Method:**
+  - `public void run()`: Overrides the `run` method of the `Thread` class. It repeatedly calls the `consume` method of the shoe shop to consume shoes.
+
+### Main Method
+
+The main method creates multiple scenarios with different numbers of producers and consumers interacting with the shoe shop.
+
+- **Scenarios:**
+  - Scenario 1: One producer and one consumer.
+  - Scenario 2: One producer and two consumers.
+  - Scenario 3: Two producers and one consumer.
+
+### Note:
+- The code demonstrates how to implement synchronization using `wait()` and `notifyAll()` to coordinate access to a shared resource (the shoe shop's stock) between multiple producers and consumers.
+- Synchronization ensures that producers wait when the stock is full and consumers wait when the stock is empty, preventing race conditions and ensuring thread safety.
+- Different scenarios are used to simulate various producer-consumer interactions and test the behavior of the system under different conditions.
 
 
 
